@@ -1,5 +1,7 @@
-require "dragonfly_fontforge/version"
+require 'dragonfly'
+require 'dragonfly_fontforge/plugin'
+require 'dragonfly_fontforge/version'
 
-module DragonflyFontforge
-  # Your code goes here...
+Dragonfly.app.configure do
+  plugin :fontforge
 end

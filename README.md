@@ -1,4 +1,4 @@
-# DragonflyFontforge
+# Dragonfly FontForge
 
 TODO: Write a gem description
 
