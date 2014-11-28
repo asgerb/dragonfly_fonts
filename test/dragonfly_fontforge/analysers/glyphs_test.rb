@@ -9,8 +9,12 @@ module DragonflyFontforge
       let(:font) { app.fetch_file(SAMPLES_DIR.join('fonts/FGroteskBook.otf')) }
 
       describe 'call' do
-        it 'returns list of glyphs' do
-          analyser.call(font).must_equal %w(a)
+        it 'returns Array' do
+          analyser.call(font).must_be_kind_of Array
+        end
+
+        it 'includes standard Hash format' do
+          analyser.call(font).shuffle.first.keys.must_equal %w(glyphclass glyphname encoding script width unicode)
         end
       end
 

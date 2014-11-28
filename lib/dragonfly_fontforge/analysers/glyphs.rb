@@ -6,7 +6,7 @@ module DragonflyFontforge
 
       def call font
         details = font.shell_eval do |path|
-          "#{DragonflyFontforge::SCRIPT_DIR.join('glyphs.py')} #{path} 2>/dev/null"
+          "#{DragonflyFontforge::SCRIPT_DIR.join('glyphs.py')} #{path}"
         end
         JSON.parse(details)
       end
