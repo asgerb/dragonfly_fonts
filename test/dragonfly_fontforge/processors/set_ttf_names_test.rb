@@ -1,14 +1,23 @@
 require 'test_helper'
 
 module DragonflyFontforge
-  module Analysers
+  module Processors
     describe 'SetTtfNames' do
 
       let(:app) { test_app.configure_with(:fontforge) }
-      let(:analyser) { DragonflyFontforge::Analysers::Glyphs.new }
-      let(:font) { app.fetch_file(SAMPLES_DIR.join('fonts/FGroteskBook.otf')) }
+      let(:processor) { DragonflyFontforge::Processors::SetTtfNames.new }
+      let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('fonts/FGroteskBook.otf')) }
 
-      describe 'call' do
+      let(:analyser) { DragonflyFontforge::Analysers::FontInfo.new }
+
+      it 'sets designer' do
+        processor.call(font, { designer: 'John Doe' })
+        analyser.call(font)['designer'].must_equal 'John Doe'
+      end
+
+      it 'sets license_url' do
+        processor.call(font, { license_url: 'http://www.radimpesko.com' })
+        analyser.call(font)['license_url'].must_equal 'http://www.radimpesko.com'
       end
 
     end

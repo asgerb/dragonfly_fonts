@@ -29,6 +29,25 @@ module DragonflyFontforge
     # ---------------------------------------------------------------------
     
     describe 'processors' do
+      it 'adds #correct_metrics' do
+        font.must_respond_to :correct_metrics
+      end
+
+      it 'adds #extract_glyph' do
+        font.must_respond_to :extract_glyph
+      end
+
+      it 'adds #set_ttf_names' do
+        font.must_respond_to :set_ttf_names
+      end
+
+      it 'adds #set_width' do
+        font.must_respond_to :set_width
+      end
+
+      it 'adds #set_woff_metadata' do
+        font.must_respond_to :set_woff_metadata
+      end
     end
 
   end
