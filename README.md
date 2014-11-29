@@ -2,6 +2,15 @@
 
 Wraps common [FontForge](http://fontforge.github.io) tasks into [Dragonfly](http://markevans.github.io/dragonfly) analysers and processors.
 
+## Todo
+
+* add EOT support
+* add WOFF2 support
+* add TTF autohint
+* rename to Dragonfly Fonts
+
+see https://github.com/zoltan-dulac/css3FontConverter
+
 ## Installation
 
 Add this line to your application's Gemfile:
