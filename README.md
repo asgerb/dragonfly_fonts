@@ -47,6 +47,7 @@ Available analysers:
 Available processors:
 
 * `.correct_metrics`
+* `.encode`
 * `.extract_glyph`
 * `.set_ttf_names`
 * `.set_width`

@@ -33,6 +33,10 @@ module DragonflyFontforge
         font.must_respond_to :correct_metrics
       end
 
+      it 'adds #encode' do
+        font.must_respond_to :encode
+      end
+
       it 'adds #extract_glyph' do
         font.must_respond_to :extract_glyph
       end
