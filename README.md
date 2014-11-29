@@ -18,7 +18,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add the fontforge plugin to your Dragonfly config block:
+
+```
+Dragonfly.app.configure do
+  plugin DragonflyFontforge::Plugin.new
+  # ...
+end
+```
 
 ## Contributing
 
