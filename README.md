@@ -1,6 +1,6 @@
 # Dragonfly FontForge
 
-TODO: Write a gem description
+Wraps common FontForge tasks into [Dragonfly](http://markevans.github.io/dragonfly) analysers and processors.
 
 ## Installation
 
@@ -26,6 +26,10 @@ Dragonfly.app.configure do
   # ...
 end
 ```
+
+You can then use the following analysers:
+
+* `.bbox`
 
 ## Contributing
 
