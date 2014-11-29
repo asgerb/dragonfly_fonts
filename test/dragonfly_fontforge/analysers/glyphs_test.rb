@@ -6,7 +6,7 @@ module DragonflyFontforge
 
       let(:app) { test_app.configure_with(:fontforge) }
       let(:analyser) { DragonflyFontforge::Analysers::Glyphs.new }
-      let(:font) { app.fetch_file(SAMPLES_DIR.join('fonts/FGroteskBook.otf')) }
+      let(:font) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
 
       describe 'call' do
         it 'returns Array' do

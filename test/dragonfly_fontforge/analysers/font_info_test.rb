@@ -6,7 +6,7 @@ module DragonflyFontforge
 
       let(:app) { test_app.configure_with(:fontforge) }
       let(:analyser) { DragonflyFontforge::Analysers::FontInfo.new }
-      let(:font) { app.fetch_file(SAMPLES_DIR.join('fonts/FGroteskBook.otf')) }
+      let(:font) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
 
       describe 'call' do
         it 'returns Hash' do
@@ -49,8 +49,16 @@ module DragonflyFontforge
           end
         end
         
+        it 'includes familyname' do
+          analyser.call(font)['familyname'].must_equal 'Inconsolata'
+        end
+
+        it 'includes fullname' do
+          analyser.call(font)['fullname'].must_equal 'Inconsolata'
+        end
+
         it 'includes weight' do
-          analyser.call(font)['weight'].must_equal 'Regular'
+          analyser.call(font)['weight'].must_equal 'Medium'
         end
       end
 
