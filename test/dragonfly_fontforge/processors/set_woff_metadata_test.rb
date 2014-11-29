@@ -7,7 +7,7 @@ module DragonflyFontforge
 
       let(:app) { test_app.configure_with(:fontforge) }
       let(:processor) { DragonflyFontforge::Processors::SetWoffMetadata.new }
-      let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('fonts/FGroteskBook.otf')) }
+      let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
 
       let(:uniqueid) { 'UNIQUEID' }
       let(:licensee_name) { 'John Doe' }

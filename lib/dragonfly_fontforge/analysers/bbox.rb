@@ -14,10 +14,10 @@ module DragonflyFontforge
         Struct::Bbox.new(
           glyph,
           
-          dimensions[0].to_i,
-          dimensions[1].to_i,
-          dimensions[2].to_i,
-          dimensions[3].to_i,
+          dimensions[0],
+          dimensions[1],
+          dimensions[2],
+          dimensions[3],
 
           (dimensions[2] - dimensions[0]),
           (dimensions[3] - dimensions[1])

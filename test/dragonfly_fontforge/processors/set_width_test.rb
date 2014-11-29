@@ -6,7 +6,7 @@ module DragonflyFontforge
 
       let(:app) { test_app.configure_with(:fontforge) }
       let(:processor) { DragonflyFontforge::Processors::SetWidth.new }
-      let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('fonts/FGroteskBook.otf')) }
+      let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
       
       let(:glyph) { "A" }
       let(:analyser) { DragonflyFontforge::Analysers::Bbox.new }
