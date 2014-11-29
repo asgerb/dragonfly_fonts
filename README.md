@@ -28,7 +28,7 @@ Using debian/ubuntu packages:
 
 ## Usage
 
-Add the fontforge plugin to your Dragonfly config block:
+Add the `:fontforge` plugin to your Dragonfly config block:
 
 ```ruby
 Dragonfly.app.configure do

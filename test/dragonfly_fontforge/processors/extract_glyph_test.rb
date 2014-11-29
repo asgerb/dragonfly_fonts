@@ -15,7 +15,7 @@ module DragonflyFontforge
       end
 
       it 'allows to specify format' do
-        processor.call(font, glyph, :svg).path.split('.').last.must_equal 'svg'
+        processor.call(font, glyph, { format: :svg }).path.split('.').last.must_equal 'svg'
       end
 
     end
