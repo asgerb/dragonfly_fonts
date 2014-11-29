@@ -1,6 +1,6 @@
 # Dragonfly FontForge
 
-Wraps common FontForge tasks into [Dragonfly](http://markevans.github.io/dragonfly) analysers and processors.
+Wraps common [FontForge](http://fontforge.github.io) tasks into [Dragonfly](http://markevans.github.io/dragonfly) analysers and processors.
 
 ## Installation
 
