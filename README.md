@@ -32,7 +32,7 @@ Add the fontforge plugin to your Dragonfly config block:
 
 ```ruby
 Dragonfly.app.configure do
-  plugin DragonflyFontforge::Plugin.new
+  plugin :fontforge
   # ...
 end
 ```

@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tomas Celizna"]
   spec.email         = ["tomas.celizna@gmail.com"]
   spec.summary       = %q{Wraps common FontForge tasks into Dragonfly analysers and processors.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/tomasc/dragonfly_fontforge"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
