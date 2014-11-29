@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = DragonflyFontforge::VERSION
   spec.authors       = ["Tomas Celizna"]
   spec.email         = ["tomas.celizna@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Wraps common FontForge tasks into Dragonfly analysers and processors.}
   spec.homepage      = ""
   spec.license       = "MIT"
 

@@ -27,13 +27,24 @@ Dragonfly.app.configure do
 end
 ```
 
-You can then use the following analysers:
+Available analysers:
 
 * `.bbox`
+* `.font_info`
+* `.glyphs`
+* `.gsub_tables`
+
+Available processors:
+
+* `.correct_metrics`
+* `.extract_glyph`
+* `.set_ttf_names`
+* `.set_width`
+* `.set_woff_metadata`
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/dragonfly_fontforge/fork )
+1. Fork it ( https://github.com/tomasc/dragonfly_fontforge/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
