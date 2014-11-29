@@ -16,6 +16,16 @@ Or install it yourself as:
 
     $ gem install dragonfly_fontforge
 
+You will also need FontForge with Python extensions installed. 
+
+Using [Homebrew](http://brew.sh):
+
+    $ brew install fontforge --enable-pyextension
+
+Using debian/ubuntu packages:
+
+    $ sudo apt-get install fontforge python-fontforge
+
 ## Usage
 
 Add the fontforge plugin to your Dragonfly config block:
