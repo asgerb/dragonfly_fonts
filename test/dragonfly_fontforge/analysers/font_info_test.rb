@@ -2,7 +2,7 @@ require 'test_helper'
 
 module DragonflyFontforge
   module Analysers
-    describe 'FontInfo' do
+    describe FontInfo do
 
       let(:app) { test_app.configure_with(:fontforge) }
       let(:analyser) { DragonflyFontforge::Analysers::FontInfo.new }
@@ -16,17 +16,34 @@ module DragonflyFontforge
         it 'includes keys' do
           %w(
             ascent
-            fontname
-            fullname
+            cap_height
+            comment
+            copyright
+            default_base_filename
             descent
+            descriptor
             designer
             designer_url
+            em
+            embedding_restrictions
+            encoding
+            familyname
+            fontlog
+            fontname
+            fullname
             license
             license_url
+            path
+            sfnt_revision
             trademark
+            upos
+            uwidth
             vendor_url
             version
             weight
+            woff_metadata
+            woff_revision
+            x_height
           ).each do |key|
             analyser.call(font).keys.must_include key
           end

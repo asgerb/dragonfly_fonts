@@ -2,7 +2,7 @@ require 'test_helper'
 
 module DragonflyFontforge
   module Analysers
-    describe 'GsubTables' do
+    describe GsubTables do
 
       let(:app) { test_app.configure_with(:fontforge) }
       let(:analyser) { DragonflyFontforge::Analysers::GsubTables.new }

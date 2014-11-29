@@ -11,7 +11,7 @@ module DragonflyFontforge
         
         dimensions = JSON.parse(res)
 
-        Struct::BBox.new(
+        Struct::Bbox.new(
           glyph,
           
           dimensions[0].to_i,
@@ -26,7 +26,7 @@ module DragonflyFontforge
 
     end
 
-    Struct.new("BBox", :glyph, :min_x, :min_y, :max_x, :max_y, :width, :height)
+    Struct.new("Bbox", :glyph, :min_x, :min_y, :max_x, :max_y, :width, :height)
     
   end
 end

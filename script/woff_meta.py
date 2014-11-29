@@ -7,7 +7,8 @@ __version__ = '0.1'
 def main():
   font = fontforge.open(sys.argv[1])
   output_file_name = sys.argv[2]
-  licensee = sys.argv[3]
+  uniqueid = sys.argv[3]
+  licensee_name = sys.argv[4]
 
   names = {}
   for n in font.sfnt_names :
@@ -17,13 +18,12 @@ def main():
   metadata = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<metadata version="1.0">',
-    '  <uniqueid id="?????????.{}.{}.{}"/>'.format(
-        __version__, font.fontname, font.version),
+    '  <uniqueid id="{}.{}.{}.{}"/>'.format(uniqueid, __version__, font.fontname, font.version),
     ]
 
   if names.get('Vendor URL'):
     metadata.extend([
-      '  <vendor name="?????????" url="{}" />'.format(names.get('Vendor URL')),
+      '  <vendor name="{}" url="{}" />'.format(names.get('Manufacturer'), names.get('Vendor URL')),
       ])
 
   if names.get('Designer'):
@@ -63,9 +63,9 @@ def main():
       '  </trademark>',
       ])
 
-  if licensee:
+  if licensee_name:
     metadata.extend([
-      '  <licensee name="{}" />'.format(licensee),
+      '  <licensee name="{}" />'.format(licensee_name),
       ])
 
   metadata.extend([

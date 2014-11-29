@@ -2,7 +2,7 @@ require 'test_helper'
 
 module DragonflyFontforge
   module Analysers
-    describe 'Bbox' do
+    describe Bbox do
 
       let(:app) { test_app.configure_with(:fontforge) }
       let(:analyser) { DragonflyFontforge::Analysers::Bbox.new }
