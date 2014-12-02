@@ -1,12 +1,12 @@
 require 'json'
 
-module DragonflyFontforge
+module DragonflyFonts
   module Analysers
-    class GsubTables
+    class Glyphs
 
       def call font
         details = font.shell_eval do |path|
-          "#{DragonflyFontforge::SCRIPT_DIR.join('gsub_tables.py')} #{path}"
+          "#{DragonflyFonts::SCRIPT_DIR.join('glyphs.py')} #{path}"
         end
         JSON.parse(details)
       end

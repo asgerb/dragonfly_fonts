@@ -1,6 +1,6 @@
 require 'shellwords'
 
-module DragonflyFontforge
+module DragonflyFonts
   module Processors
     class SetTtfNames
 

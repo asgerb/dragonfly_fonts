@@ -5,7 +5,7 @@ require 'minitest/autorun'
 require 'minitest/spec'
 
 require 'dragonfly'
-require 'dragonfly_fontforge'
+require 'dragonfly_fonts'
 
 # ---------------------------------------------------------------------
 

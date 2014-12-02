@@ -1,9 +1,9 @@
 require 'test_helper'
 
-module DragonflyFontforge
+module DragonflyFonts
   describe Plugin do
 
-    let(:app) { test_app.configure_with(:fontforge) }
+    let(:app) { test_app.configure_with(:fonts) }
     let(:font) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
 
     # ---------------------------------------------------------------------

@@ -1,6 +1,6 @@
 require 'json'
 
-module DragonflyFontforge
+module DragonflyFonts
   module Analysers
     class Bbox
 

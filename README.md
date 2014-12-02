@@ -1,13 +1,12 @@
-# Dragonfly FontForge
+# Dragonfly Fonts
 
-Wraps common [FontForge](http://fontforge.github.io) tasks into [Dragonfly](http://markevans.github.io/dragonfly) analysers and processors.
+Wraps common font-related tasks into [Dragonfly](http://markevans.github.io/dragonfly) analysers and processors.
 
 ## Todo
 
 * add EOT support
 * add WOFF2 support
 * add TTF autohint
-* rename to Dragonfly Fonts
 
 see https://github.com/zoltan-dulac/css3FontConverter
 
@@ -15,7 +14,7 @@ see https://github.com/zoltan-dulac/css3FontConverter
 
 Add this line to your application's Gemfile:
 
-    gem 'dragonfly_fontforge'
+    gem 'dragonfly_fonts'
 
 And then execute:
 
@@ -23,7 +22,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install dragonfly_fontforge
+    $ gem install dragonfly_fonts
 
 You will also need FontForge with Python extensions installed. 
 
@@ -37,11 +36,11 @@ Using debian/ubuntu packages:
 
 ## Usage
 
-Add the `:fontforge` plugin to your Dragonfly config block:
+Add the `:fonts` plugin to your Dragonfly config block:
 
 ```ruby
 Dragonfly.app.configure do
-  plugin :fontforge
+  plugin :fonts
   # ...
 end
 ```
@@ -64,7 +63,7 @@ Available processors:
 
 ## Contributing
 
-1. Fork it ( https://github.com/tomasc/dragonfly_fontforge/fork )
+1. Fork it ( https://github.com/tomasc/dragonfly_fonts/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

@@ -1,11 +1,11 @@
 require 'test_helper'
 
-module DragonflyFontforge
+module DragonflyFonts
   module Analysers
     describe GsubTables do
 
-      let(:app) { test_app.configure_with(:fontforge) }
-      let(:analyser) { DragonflyFontforge::Analysers::GsubTables.new }
+      let(:app) { test_app.configure_with(:fonts) }
+      let(:analyser) { DragonflyFonts::Analysers::GsubTables.new }
       let(:font) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
 
       describe 'call' do

@@ -1,11 +1,11 @@
 require 'dragonfly'
-require 'dragonfly_fontforge/plugin'
-require 'dragonfly_fontforge/version'
+require 'dragonfly_fonts/plugin'
+require 'dragonfly_fonts/version'
 
-module DragonflyFontforge
+module DragonflyFonts
   SCRIPT_DIR = Pathname.new(File.expand_path('../../script', __FILE__))
 end
 
 Dragonfly.app.configure do
-  plugin :fontforge
+  plugin :fonts
 end

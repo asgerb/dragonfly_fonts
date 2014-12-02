@@ -1,4 +1,4 @@
-module DragonflyFontforge
+module DragonflyFonts
   module Processors
     class CorrectMetrics
 

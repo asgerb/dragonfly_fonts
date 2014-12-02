@@ -1,15 +1,15 @@
 require 'test_helper'
 
-module DragonflyFontforge
+module DragonflyFonts
   module Processors
     describe SetWidth do
 
-      let(:app) { test_app.configure_with(:fontforge) }
-      let(:processor) { DragonflyFontforge::Processors::SetWidth.new }
+      let(:app) { test_app.configure_with(:fonts) }
+      let(:processor) { DragonflyFonts::Processors::SetWidth.new }
       let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
       
       let(:glyph) { "A" }
-      let(:analyser) { DragonflyFontforge::Analysers::Bbox.new }
+      let(:analyser) { DragonflyFonts::Analysers::Bbox.new }
 
       before do
         @orig_width = analyser.call(font, glyph).width

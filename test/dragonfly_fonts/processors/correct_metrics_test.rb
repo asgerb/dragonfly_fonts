@@ -1,14 +1,14 @@
 require 'test_helper'
 
-module DragonflyFontforge
+module DragonflyFonts
   module Processors
     describe CorrectMetrics do
 
-      let(:app) { test_app.configure_with(:fontforge) }
-      let(:processor) { DragonflyFontforge::Processors::CorrectMetrics.new }
+      let(:app) { test_app.configure_with(:fonts) }
+      let(:processor) { DragonflyFonts::Processors::CorrectMetrics.new }
       let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
 
-      let(:analyser) { DragonflyFontforge::Analysers::FontInfo.new }
+      let(:analyser) { DragonflyFonts::Analysers::FontInfo.new }
 
       before do
         @orig_ascent = analyser.call(font)['ascent']

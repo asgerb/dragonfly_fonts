@@ -1,11 +1,11 @@
 require 'test_helper'
 
-module DragonflyFontforge
+module DragonflyFonts
   module Processors
     describe ExtractGlyph do
 
-      let(:app) { test_app.configure_with(:fontforge) }
-      let(:processor) { DragonflyFontforge::Processors::ExtractGlyph.new }
+      let(:app) { test_app.configure_with(:fonts) }
+      let(:processor) { DragonflyFonts::Processors::ExtractGlyph.new }
       let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
 
       let(:glyph) { 'A' }

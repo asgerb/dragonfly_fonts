@@ -1,16 +1,16 @@
-require 'dragonfly_fontforge/analysers/bbox'
-require 'dragonfly_fontforge/analysers/font_info'
-require 'dragonfly_fontforge/analysers/glyphs'
-require 'dragonfly_fontforge/analysers/gsub_tables'
+require 'dragonfly_fonts/analysers/bbox'
+require 'dragonfly_fonts/analysers/font_info'
+require 'dragonfly_fonts/analysers/glyphs'
+require 'dragonfly_fonts/analysers/gsub_tables'
 
-require 'dragonfly_fontforge/processors/correct_metrics'
-require 'dragonfly_fontforge/processors/encode'
-require 'dragonfly_fontforge/processors/extract_glyph'
-require 'dragonfly_fontforge/processors/set_ttf_names'
-require 'dragonfly_fontforge/processors/set_width'
-require 'dragonfly_fontforge/processors/set_woff_metadata'
+require 'dragonfly_fonts/processors/correct_metrics'
+require 'dragonfly_fonts/processors/encode'
+require 'dragonfly_fonts/processors/extract_glyph'
+require 'dragonfly_fonts/processors/set_ttf_names'
+require 'dragonfly_fonts/processors/set_width'
+require 'dragonfly_fonts/processors/set_woff_metadata'
 
-module DragonflyFontforge
+module DragonflyFonts
   class Plugin
 
     def call app, opts={}
@@ -30,4 +30,4 @@ module DragonflyFontforge
   end
 end
 
-Dragonfly::App.register_plugin(:fontforge) { DragonflyFontforge::Plugin.new }
+Dragonfly::App.register_plugin(:fonts) { DragonflyFonts::Plugin.new }

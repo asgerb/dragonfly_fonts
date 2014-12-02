@@ -1,14 +1,14 @@
 require 'test_helper'
 
-module DragonflyFontforge
+module DragonflyFonts
   module Processors
     describe Encode do
 
-      let(:app) { test_app.configure_with(:fontforge) }
-      let(:processor) { DragonflyFontforge::Processors::Encode.new }
+      let(:app) { test_app.configure_with(:fonts) }
+      let(:processor) { DragonflyFonts::Processors::Encode.new }
       let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
 
-      let(:analyser) { DragonflyFontforge::Analysers::FontInfo.new }
+      let(:analyser) { DragonflyFonts::Analysers::FontInfo.new }
 
       it 'allows to convert to :woff' do
         processor.call(font, :woff).path.must_match(/woff\z/)

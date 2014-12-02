@@ -1,12 +1,13 @@
 require 'json'
 
-module DragonflyFontforge
+module DragonflyFonts
   module Analysers
-    class Glyphs
+    class FontInfo
 
+      # see http://dmtr.org/ff.php#Font
       def call font
         details = font.shell_eval do |path|
-          "#{DragonflyFontforge::SCRIPT_DIR.join('glyphs.py')} #{path}"
+          "#{DragonflyFonts::SCRIPT_DIR.join('font_info.py')} #{path}"
         end
         JSON.parse(details)
       end
