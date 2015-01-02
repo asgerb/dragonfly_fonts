@@ -2,10 +2,6 @@
 
 Wraps common font-related tasks into [Dragonfly](http://markevans.github.io/dragonfly) analysers and processors.
 
-## Dependencies
-
-* [FontForge](http://fontforge.github.io)
-
 ## Todo
 
 * add EOT support
@@ -28,7 +24,11 @@ Or install it yourself as:
 
     $ gem install dragonfly_fonts
 
-You will also need FontForge with Python extensions installed. 
+## Dependencies
+
+### FontForge
+
+You will need [FontForge](http://fontforge.github.io/) with Python extensions installed. 
 
 Using [Homebrew](http://brew.sh):
 
