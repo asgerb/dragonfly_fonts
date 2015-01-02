@@ -58,7 +58,7 @@ Returns `Struct.new("Bbox", :glyph, :min_x, :min_y, :max_x, :max_y, :width, :hei
 font.bbox(glyph)
 ```
 
-### FontInfo
+### Font Info
 
 Returns information about the font as a Hash with the following keys: `:ascent`, `:cap_height`, `:comment`, `:copyright`, `:default_base_filename`, `:descent`, `:descriptor`, `:designer`, `:designer_url`, `:em`, `:embedding_restrictions`, `:encoding`, `:familyname`, `:fontlog`, `:fontname`, `:fullname`, `:license`, `:license_url`, `:path`, `:sfnt_revision`, `:trademark`, `:upos`, `:uwidth`, `:vendor_url`, `:version`, `:weight`, `:woff_metadata`, `:woff_revision`, `:x_height`.
 
@@ -74,7 +74,7 @@ Returns `Array` of all glyphs contained in the font, each glyph represented by a
 font.glyphs
 ```
 
-### GSUBTables
+### GSUB Tables
 
 Returns `Array` of gsub tables in the font.
 
@@ -84,17 +84,17 @@ font.gsub_tables
 
 ## Processors
 
-### CorrectMetrics
+### Correct Metrics
 
 ### Encode
 
-### ExtractGlyph
+### Extract Glyph
 
-### SetTTFNames
+### Set TTF Names
 
-### SetWidth
+### Set Width
 
-### SetWOFFMetadata
+### Set WOFF Metadata
 
 ## Contributing
 
