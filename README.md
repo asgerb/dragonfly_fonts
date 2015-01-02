@@ -2,13 +2,6 @@
 
 Wraps common font-related tasks into [Dragonfly](http://markevans.github.io/dragonfly) analysers and processors.
 
-## Todo
-
-* add WOFF2 support
-* add TTF autohint
-
-see https://github.com/zoltan-dulac/css3FontConverter
-
 ## Installation
 
 Add this line to your application's Gemfile:
