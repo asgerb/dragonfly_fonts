@@ -125,7 +125,7 @@ font.set_ttf_names(ttf_names)
 Allows to set underline properties: position and width.
 
 ```ruby
-font.set_width({ upos: 1, uwidth: 1 })
+font.set_underline({ upos: 1, uwidth: 1 })
 ```
 
 ### Set Width
