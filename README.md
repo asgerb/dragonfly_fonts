@@ -2,6 +2,10 @@
 
 Wraps common font-related tasks into [Dragonfly](http://markevans.github.io/dragonfly) analysers and processors.
 
+## Dependencies
+
+* [FontForge](http://fontforge.github.io)
+
 ## Todo
 
 * add EOT support
@@ -41,25 +45,56 @@ Add the `:fonts` plugin to your Dragonfly config block:
 ```ruby
 Dragonfly.app.configure do
   plugin :fonts
-  # ...
 end
 ```
 
-Available analysers:
+## Analysers
 
-* `.bbox`
-* `.font_info`
-* `.glyphs`
-* `.gsub_tables`
+### Bbox
 
-Available processors:
+Returns `Struct.new("Bbox", :glyph, :min_x, :min_y, :max_x, :max_y, :width, :height)` representing the glyph's bounding box.
 
-* `.correct_metrics`
-* `.encode`
-* `.extract_glyph`
-* `.set_ttf_names`
-* `.set_width`
-* `.set_woff_metadata`
+```ruby
+font.bbox(glyph)
+```
+
+### FontInfo
+
+Returns information about the font as a Hash with the following keys: `:ascent`, `:cap_height`, `:comment`, `:copyright`, `:default_base_filename`, `:descent`, `:descriptor`, `:designer`, `:designer_url`, `:em`, `:embedding_restrictions`, `:encoding`, `:familyname`, `:fontlog`, `:fontname`, `:fullname`, `:license`, `:license_url`, `:path`, `:sfnt_revision`, `:trademark`, `:upos`, `:uwidth`, `:vendor_url`, `:version`, `:weight`, `:woff_metadata`, `:woff_revision`, `:x_height`.
+
+```ruby
+font.font_info
+```
+
+### Glyphs
+
+Returns `Array` of all glyphs contained in the font, each glyph represented by a Hash with the following keys: `:glyphclass`, `:glyphname`, `:encoding`, `:script`, `:width`, `:unicode`.
+
+```ruby
+font.glyphs
+```
+
+### GSUBTables
+
+Returns `Array` of gsub tables in the font.
+
+```ruby
+font.gsub_tables
+```
+
+## Processors
+
+### CorrectMetrics
+
+### Encode
+
+### ExtractGlyph
+
+### SetTTFNames
+
+### SetWidth
+
+### SetWOFFMetadata
 
 ## Contributing
 
