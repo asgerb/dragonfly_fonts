@@ -86,15 +86,56 @@ font.gsub_tables
 
 ### Correct Metrics
 
+Normalizes ascent and descent values.
+
+```ruby
+font.correct_metrics
+```
+
 ### Encode
+
+Allows for conversion to EOT, OTF, SVG, TTF, WOFF.
+
+```ruby
+font.encode(:woff)
+```
 
 ### Extract Glyph
 
+Extracts specified glyph in SVG format.
+
+```ruby
+font.extract_glyph('A')
+```
+
 ### Set TTF Names
+
+Allows to set the following TTF properties: `:compatible_full`, `:copyright`, `:description`, `:designer`, `:designer_url`, `:fontname`, `:fullname`, `:license`, `:license_url`, `:manufacturer`, `:postscript_cid`, `:postscript_name`, `:preferred_family`, `:preferred_subfamily`, `:sample_text`, `:trademark`, `:uid`, `:vendor_url`, `:version`, `:weight`. See [docs at Adobe](http://partners.adobe.com/public/developer/opentype/index_name.html#enc4) for more detail.
+
+```ruby
+ttf_names = { designer: 'John Doe' }
+font.set_ttf_names(ttf_names)
+```
 
 ### Set Width
 
+Sets width of each character. The relative parameter can have the following values:
+
+* when 0 the vertical width will be set exactly to `width` value
+* when 1 then the vertical width will be incremented by `width` value
+* when 2 then the vertical width will be scaled by `width` value/100.0.
+
+```ruby
+font.set_width(width, relative=1)
+```
+
 ### Set WOFF Metadata
+
+Converts font to WOFF and sets license-related values of embedded XML metadata. The rest of the metadata is automatically inferred from font properties (see `#set_ttf_names`).
+
+```ruby
+font.set_woff_metadata(uniqueid, licensee_name)
+```
 
 ## Contributing
 

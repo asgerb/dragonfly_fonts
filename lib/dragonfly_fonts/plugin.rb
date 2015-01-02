@@ -19,6 +19,8 @@ module DragonflyFonts
       app.add_analyser :glyphs, Analysers::Glyphs.new
       app.add_analyser :gsub_tables, Analysers::GsubTables.new
 
+      # ---------------------------------------------------------------------
+      
       app.add_processor :correct_metrics, Processors::CorrectMetrics.new
       app.add_processor :encode, Processors::Encode.new
       app.add_processor :extract_glyph, Processors::ExtractGlyph.new
