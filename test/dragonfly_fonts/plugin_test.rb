@@ -45,12 +45,20 @@ module DragonflyFonts
         font.must_respond_to :set_ttf_names
       end
 
+      it 'adds #set_underline' do
+        font.must_respond_to :set_underline
+      end
+
       it 'adds #set_width' do
         font.must_respond_to :set_width
       end
 
       it 'adds #set_woff_metadata' do
         font.must_respond_to :set_woff_metadata
+      end
+
+      it 'adds #ttf_autohint' do
+        font.must_respond_to :ttf_autohint
       end
     end
 

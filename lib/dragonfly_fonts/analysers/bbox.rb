@@ -6,14 +6,14 @@ module DragonflyFonts
 
       def call font, glyph
         res = font.shell_eval do |path|
-          "fontforge -lang=ff -c 'Open($1); Select(\"#{glyph}\"); Print(GlyphInfo(\"BBox\"));' #{path}"
+          "#{fontforge_command} -lang=ff -c 'Open($1); Select(\"#{glyph}\"); Print(GlyphInfo(\"BBox\"));' #{path}"
         end
-        
+
         dimensions = JSON.parse(res)
 
         Struct::Bbox.new(
           glyph,
-          
+
           dimensions[0],
           dimensions[1],
           dimensions[2],
@@ -24,9 +24,15 @@ module DragonflyFonts
         )
       end
 
+      private # =============================================================
+
+      def fontforge_command
+        'fontforge'
+      end
+
     end
 
     Struct.new("Bbox", :glyph, :min_x, :min_y, :max_x, :max_y, :width, :height)
-    
+
   end
 end

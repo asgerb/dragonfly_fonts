@@ -4,7 +4,6 @@ Wraps common font-related tasks into [Dragonfly](http://markevans.github.io/drag
 
 ## Todo
 
-* add EOT support
 * add WOFF2 support
 * add TTF autohint
 
@@ -28,7 +27,7 @@ Or install it yourself as:
 
 ### FontForge
 
-You will need [FontForge](http://fontforge.github.io/) with Python extensions installed. 
+You will need [FontForge](http://fontforge.github.io) with Python extensions installed. 
 
 Using [Homebrew](http://brew.sh):
 
@@ -37,6 +36,14 @@ Using [Homebrew](http://brew.sh):
 Using debian/ubuntu packages:
 
     $ sudo apt-get install fontforge python-fontforge
+
+### ttf2eot
+
+See [ttf2eot](http://code.google.com/p/ttf2eot).
+
+### ttfautohint
+
+See [ttfautohint](http://www.freetype.org/ttfautohint/doc/ttfautohint.html).
 
 ## Usage
 
@@ -100,6 +107,9 @@ Allows for conversion to EOT, OTF, SVG, TTF, WOFF.
 font.encode(:woff)
 ```
 
+* OTF, SVG, TTF conversion is handled by `FontForge`.
+* EOT conversion is handled by `ttf2eot`. The input font needs to be in TTF format. Due to bug in IE, font FullName MUST begin with FamilyName. For example, if FamilyName is fontello, then FullName should be fontello regular and so on. In this condition is not satisfyed, then font will not be shown in IE.
+
 ### Extract Glyph
 
 Extracts specified glyph in SVG format.
@@ -110,11 +120,19 @@ font.extract_glyph('A')
 
 ### Set TTF Names
 
-Allows to set the following TTF properties: `:compatible_full`, `:copyright`, `:description`, `:designer`, `:designer_url`, `:fontname`, `:fullname`, `:license`, `:license_url`, `:manufacturer`, `:postscript_cid`, `:postscript_name`, `:preferred_family`, `:preferred_subfamily`, `:sample_text`, `:trademark`, `:uid`, `:vendor_url`, `:version`, `:weight`. See [docs at Adobe](http://partners.adobe.com/public/developer/opentype/index_name.html#enc4) for more detail.
+Allows to set the following TTF properties: `:compatible_full`, `:copyright`, `:description`, `:designer`, `:designer_url`, `:fontname`, `:fullname`, `:license`, `:license_url`, `:manufacturer`, `:postscript_cid`, `:postscript_name`, `:preferred_family`, `:preferred_subfamily`, `:sample_text`, `:trademark`, `:uid`, `:vendor_url`, `:version`, `:weight`. See [docs at Adobe](http://partners.adobe.com/public/developer/opentype/index_name.html#enc4) for more details.
 
 ```ruby
 ttf_names = { designer: 'John Doe' }
 font.set_ttf_names(ttf_names)
+```
+
+### Set Underline
+
+Allows to set underline properties: position and width.
+
+```ruby
+font.set_width({ upos: 1, uwidth: 1 })
 ```
 
 ### Set Width
@@ -135,6 +153,14 @@ Converts font to WOFF and sets license-related values of embedded XML metadata. 
 
 ```ruby
 font.set_woff_metadata(uniqueid, licensee_name)
+```
+
+### TTF autohint
+
+Generates FreeType auto hints. See [ttfautohint](http://www.freetype.org/ttfautohint/doc/ttfautohint.html).
+
+```ruby
+font.ttf_autohint
 ```
 
 ## Contributing

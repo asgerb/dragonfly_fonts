@@ -30,12 +30,16 @@ module DragonflyFonts
 
       def call font, values={}
         font.shell_update do |old_path, new_path|
-          "fontforge -lang=ff -c 'Open($1); #{command_string(values)} Generate($2);' #{old_path} #{new_path}"
+          "#{fontforge_command} -lang=ff -c 'Open($1); #{command_string(values)} Generate($2);' #{old_path} #{new_path}"
         end
       end
 
       private # =============================================================
-        
+      
+      def fontforge_command
+        'fontforge'
+      end
+
       def command_string values
         res = []
         values.each do |k, v|
