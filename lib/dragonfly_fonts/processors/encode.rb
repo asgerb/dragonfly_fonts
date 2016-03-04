@@ -10,6 +10,7 @@ module DragonflyFonts
           case format.to_sym
           when :eot then ttf2eot(old_path, new_path)
           when :otf, :svg, :ttf, :woff then fontforge(old_path, new_path)
+          when :woff2 then woff2(old_path, new_path)
           else fail UnsupportedFormat
           end
         end
@@ -32,12 +33,24 @@ module DragonflyFonts
         'fontforge'
       end
 
+      # ---------------------------------------------------------------------
+
       def ttf2eot(old_path, new_path)
         "#{ttf2eot_command} < #{old_path} > #{new_path}"
       end
 
       def ttf2eot_command
         'ttf2eot'
+      end
+
+      # ---------------------------------------------------------------------
+
+      def woff2(old_path, new_path)
+        "#{woff2_command} #{old_path} && mv #{old_path.gsub(/\.\w{3,5}\z/, '.woff2')} #{new_path}"
+      end
+
+      def woff2_command
+        'woff2_compress'
       end
     end
   end

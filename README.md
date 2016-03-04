@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ### FontForge
 
-You will need [FontForge](http://fontforge.github.io) with Python extensions installed. 
+You will need [FontForge](http://fontforge.github.io) with Python extensions installed.
 
 Using [Homebrew](http://brew.sh):
 
@@ -37,6 +37,10 @@ See [ttf2eot](http://code.google.com/p/ttf2eot).
 ### ttfautohint
 
 See [ttfautohint](http://www.freetype.org/ttfautohint/doc/ttfautohint.html).
+
+### woff2
+
+See [woff2](https://github.com/google/woff2).
 
 ## Usage
 
@@ -94,14 +98,15 @@ font.correct_metrics
 
 ### Encode
 
-Allows for conversion to EOT, OTF, SVG, TTF, WOFF.
+Allows for conversion to EOT, OTF, SVG, TTF, WOFF, WOFF2.
 
 ```ruby
 font.encode(:woff)
 ```
 
-* OTF, SVG, TTF conversion is handled by `FontForge`.
+* OTF, SVG, TTF, WOFF conversion is handled by `FontForge`.
 * EOT conversion is handled by `ttf2eot`. The input font needs to be in TTF format. Due to bug in IE, font FullName MUST begin with FamilyName. For example, if FamilyName is fontello, then FullName should be fontello regular and so on. In this condition is not satisfyed, then font will not be shown in IE.
+* WOFF2 conversion is handled by `woff2`.
 
 ### Extract Glyph
 
