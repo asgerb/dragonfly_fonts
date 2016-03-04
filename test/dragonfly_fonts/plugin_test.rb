@@ -40,6 +40,10 @@ module DragonflyFonts
         font.must_respond_to :extract_glyph
       end
 
+      it 'adds #normalize_names' do
+        font.must_respond_to :normalize_names
+      end
+
       it 'adds #set_ttf_names' do
         font.must_respond_to :set_ttf_names
       end
@@ -58,6 +62,10 @@ module DragonflyFonts
 
       it 'adds #ttf_autohint' do
         font.must_respond_to :ttf_autohint
+      end
+
+      it 'adds #web_friendly' do
+        font.must_respond_to :web_friendly
       end
     end
   end

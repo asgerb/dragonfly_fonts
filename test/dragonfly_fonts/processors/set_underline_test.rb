@@ -4,14 +4,17 @@ module DragonflyFonts
   module Processors
     describe SetUnderline do
       let(:app) { test_app.configure_with(:fonts) }
-      let(:processor) { DragonflyFonts::Processors::SetUnderline.new }
+      let(:asset) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
 
-      let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
+      let(:upos) { 1.0 }
+      let(:uwidth) { 2.0 }
+
+      # =====================================================================
 
       describe 'upos' do
         it 'sets the width to the value' do
-          processor.call(font, upos: 1, uwidth: 1)
-          font.path.must_include 'otf'
+          asset.set_underline(upos: upos).font_info['upos'].must_equal upos
+          asset.set_underline(uwidth: uwidth).font_info['uwidth'].must_equal uwidth
         end
       end
     end

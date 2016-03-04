@@ -4,11 +4,12 @@ module DragonflyFonts
   module Analysers
     describe Bbox do
       let(:app) { test_app.configure_with(:fonts) }
+      let(:asset) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
+
       let(:analyser) { DragonflyFonts::Analysers::Bbox.new }
-      let(:font) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
 
       describe 'call' do
-        let(:bbox) { analyser.call(font, 'A') }
+        let(:bbox) { analyser.call(asset, 'A') }
 
         it 'returns Hash' do
           bbox.must_be_kind_of Struct

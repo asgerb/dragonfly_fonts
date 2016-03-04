@@ -59,7 +59,7 @@ end
 Returns `Struct.new("Bbox", :glyph, :min_x, :min_y, :max_x, :max_y, :width, :height)` representing the glyph's bounding box.
 
 ```ruby
-font.bbox(glyph)
+DragonflyFonts::Analysers::Bbox.new.call(font, glyph)
 ```
 
 ### Font Info
@@ -116,6 +116,14 @@ Extracts specified glyph in SVG format.
 font.extract_glyph('A')
 ```
 
+### Normalize Names
+
+Fix for rejected EOT's in IE8.
+
+```ruby
+font.normalize_names
+```
+
 ### Set TTF Names
 
 Allows to set the following TTF properties: `:compatible_full`, `:copyright`, `:description`, `:designer`, `:designer_url`, `:fontname`, `:fullname`, `:license`, `:license_url`, `:manufacturer`, `:postscript_cid`, `:postscript_name`, `:preferred_family`, `:preferred_subfamily`, `:sample_text`, `:trademark`, `:uid`, `:vendor_url`, `:version`, `:weight`. See [docs at Adobe](http://partners.adobe.com/public/developer/opentype/index_name.html#enc4) for more details.
@@ -159,6 +167,14 @@ Generates FreeType auto hints. See [ttfautohint](http://www.freetype.org/ttfauto
 
 ```ruby
 font.ttf_autohint
+```
+
+### Web Friendly
+
+Make web friendly.
+
+```ruby
+font.web_friendly
 ```
 
 ## Contributing

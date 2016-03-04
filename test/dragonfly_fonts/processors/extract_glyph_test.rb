@@ -4,17 +4,18 @@ module DragonflyFonts
   module Processors
     describe ExtractGlyph do
       let(:app) { test_app.configure_with(:fonts) }
-      let(:processor) { DragonflyFonts::Processors::ExtractGlyph.new }
-      let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
+      let(:asset) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
 
       let(:glyph) { 'A' }
 
+      # =====================================================================
+
       it 'extracts specified glyph in SVG by default' do
-        processor.call(font, glyph).path.split('.').last.must_equal 'svg'
+        asset.extract_glyph(glyph).data.must_include '</svg>'
       end
 
       it 'allows to specify format' do
-        processor.call(font, glyph, format: :svg).path.split('.').last.must_equal 'svg'
+        asset.extract_glyph(glyph, format: :svg).data.must_include '</svg>'
       end
     end
   end
