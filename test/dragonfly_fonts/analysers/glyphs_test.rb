@@ -3,7 +3,6 @@ require 'test_helper'
 module DragonflyFonts
   module Analysers
     describe Glyphs do
-
       let(:app) { test_app.configure_with(:fonts) }
       let(:analyser) { DragonflyFonts::Analysers::Glyphs.new }
       let(:font) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
@@ -14,10 +13,9 @@ module DragonflyFonts
         end
 
         it 'includes standard Hash format' do
-          analyser.call(font).shuffle.first.keys.must_equal %w(glyphclass glyphname encoding script width unicode)
+          analyser.call(font).sample.keys.must_equal %w(glyphclass glyphname encoding script width unicode)
         end
       end
-
     end
   end
 end

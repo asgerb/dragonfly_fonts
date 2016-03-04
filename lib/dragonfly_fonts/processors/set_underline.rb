@@ -3,8 +3,7 @@ require 'shellwords'
 module DragonflyFonts
   module Processors
     class SetUnderline
-
-      def call content, opts={}
+      def call(content, opts = {})
         upos = opts.fetch(:upos, '')
         uwidth = opts.fetch(:uwidth, '')
 
@@ -13,7 +12,7 @@ module DragonflyFonts
         end
       end
 
-      def update_url attrs, *args
+      def update_url(attrs, *_args)
         attrs.style = 'adjunderline'
       end
 
@@ -22,7 +21,6 @@ module DragonflyFonts
       def underline_script
         DragonflyFonts::SCRIPT_DIR.join('underline.py')
       end
-
     end
   end
 end

@@ -3,7 +3,6 @@ require 'test_helper'
 module DragonflyFonts
   module Analysers
     describe Bbox do
-
       let(:app) { test_app.configure_with(:fonts) }
       let(:analyser) { DragonflyFonts::Analysers::Bbox.new }
       let(:font) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
@@ -43,7 +42,6 @@ module DragonflyFonts
           bbox.height.must_equal 635.168281
         end
       end
-
     end
   end
 end

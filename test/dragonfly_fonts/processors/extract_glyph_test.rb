@@ -3,7 +3,6 @@ require 'test_helper'
 module DragonflyFonts
   module Processors
     describe ExtractGlyph do
-
       let(:app) { test_app.configure_with(:fonts) }
       let(:processor) { DragonflyFonts::Processors::ExtractGlyph.new }
       let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
@@ -15,9 +14,8 @@ module DragonflyFonts
       end
 
       it 'allows to specify format' do
-        processor.call(font, glyph, { format: :svg }).path.split('.').last.must_equal 'svg'
+        processor.call(font, glyph, format: :svg).path.split('.').last.must_equal 'svg'
       end
-
     end
   end
 end

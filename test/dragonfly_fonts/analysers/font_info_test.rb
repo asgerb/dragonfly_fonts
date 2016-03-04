@@ -3,7 +3,6 @@ require 'test_helper'
 module DragonflyFonts
   module Analysers
     describe FontInfo do
-
       let(:app) { test_app.configure_with(:fonts) }
       let(:analyser) { DragonflyFonts::Analysers::FontInfo.new }
       let(:font) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
@@ -48,7 +47,7 @@ module DragonflyFonts
             analyser.call(font).keys.must_include key
           end
         end
-        
+
         it 'includes familyname' do
           analyser.call(font)['familyname'].must_equal 'Inconsolata'
         end
@@ -61,7 +60,6 @@ module DragonflyFonts
           analyser.call(font)['weight'].must_equal 'Medium'
         end
       end
-
     end
   end
 end

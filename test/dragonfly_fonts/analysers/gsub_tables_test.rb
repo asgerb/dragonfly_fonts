@@ -3,7 +3,6 @@ require 'test_helper'
 module DragonflyFonts
   module Analysers
     describe GsubTables do
-
       let(:app) { test_app.configure_with(:fonts) }
       let(:analyser) { DragonflyFonts::Analysers::GsubTables.new }
       let(:font) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
@@ -38,7 +37,6 @@ module DragonflyFonts
         #   end
         # end
       end
-
     end
   end
 end

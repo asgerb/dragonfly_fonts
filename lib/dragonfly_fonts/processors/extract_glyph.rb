@@ -1,8 +1,7 @@
 module DragonflyFonts
   module Processors
     class ExtractGlyph
-
-      def call font, glyph, opts={}
+      def call(font, glyph, opts = {})
         format = opts.fetch(:format, :svg)
 
         font.shell_update(ext: format) do |old_path, new_path|
@@ -11,11 +10,10 @@ module DragonflyFonts
       end
 
       private # =============================================================
-      
+
       def fontforge_command
         'fontforge'
       end
-
     end
   end
 end

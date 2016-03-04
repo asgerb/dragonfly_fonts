@@ -3,10 +3,9 @@ require 'test_helper'
 module DragonflyFonts
   module Processors
     describe Encode do
-
       let(:app) { test_app.configure_with(:fonts) }
       let(:processor) { DragonflyFonts::Processors::Encode.new }
-      
+
       let(:otf_font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
       let(:ttf_font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Arial.ttf')) }
 
@@ -17,12 +16,12 @@ module DragonflyFonts
       it 'allows to convert to :eot' do
         processor.call(ttf_font, :eot)
         ttf_font.path.must_include 'eot'
-      end 
+      end
 
       it 'allows to convert to :otf' do
         processor.call(otf_font, :otf)
         get_mime_type(otf_font.path).must_include 'application/vnd.ms-opentype'
-      end      
+      end
 
       it 'allows to convert to :ttf' do
         processor.call(otf_font, :ttf)
@@ -40,11 +39,10 @@ module DragonflyFonts
       end
 
       # ---------------------------------------------------------------------
-      
-      def get_mime_type file_path
-        `file --mime-type #{file_path}`.gsub(/\n/, "")
-      end
 
+      def get_mime_type(file_path)
+        `file --mime-type #{file_path}`.gsub(/\n/, '')
+      end
     end
   end
 end

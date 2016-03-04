@@ -3,8 +3,7 @@ require 'json'
 module DragonflyFonts
   module Analysers
     class Bbox
-
-      def call font, glyph
+      def call(font, glyph)
         res = font.shell_eval do |path|
           "#{fontforge_command} -lang=ff -c 'Open($1); Select(\"#{glyph}\"); Print(GlyphInfo(\"BBox\"));' #{path}"
         end
@@ -29,10 +28,8 @@ module DragonflyFonts
       def fontforge_command
         'fontforge'
       end
-
     end
 
-    Struct.new("Bbox", :glyph, :min_x, :min_y, :max_x, :max_y, :width, :height)
-
+    Struct.new('Bbox', :glyph, :min_x, :min_y, :max_x, :max_y, :width, :height)
   end
 end

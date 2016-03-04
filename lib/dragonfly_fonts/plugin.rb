@@ -14,15 +14,14 @@ require 'dragonfly_fonts/processors/ttf_autohint'
 
 module DragonflyFonts
   class Plugin
-
-    def call app, opts={}
+    def call(app, _opts = {})
       app.add_analyser :bbox, Analysers::Bbox.new
       app.add_analyser :font_info, Analysers::FontInfo.new
       app.add_analyser :glyphs, Analysers::Glyphs.new
       app.add_analyser :gsub_tables, Analysers::GsubTables.new
 
       # ---------------------------------------------------------------------
-      
+
       app.add_processor :correct_metrics, Processors::CorrectMetrics.new
       app.add_processor :encode, Processors::Encode.new
       app.add_processor :extract_glyph, Processors::ExtractGlyph.new
@@ -32,7 +31,6 @@ module DragonflyFonts
       app.add_processor :set_woff_metadata, Processors::SetWoffMetadata.new
       app.add_processor :ttf_autohint, Processors::TtfAutohint.new
     end
-
   end
 end
 

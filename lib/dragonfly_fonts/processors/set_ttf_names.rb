@@ -3,7 +3,6 @@ require 'shellwords'
 module DragonflyFonts
   module Processors
     class SetTtfNames
-
       # http://partners.adobe.com/public/developer/opentype/index_name.html#enc4
       NAME_IDS = {
         compatible_full: 18,
@@ -28,19 +27,19 @@ module DragonflyFonts
         weight: 2
       }
 
-      def call font, values={}
+      def call(font, values = {})
         font.shell_update do |old_path, new_path|
           "#{fontforge_command} -lang=ff -c 'Open($1); #{command_string(values)} Generate($2);' #{old_path} #{new_path}"
         end
       end
 
       private # =============================================================
-      
+
       def fontforge_command
         'fontforge'
       end
 
-      def command_string values
+      def command_string(values)
         res = []
         values.each do |k, v|
           next unless NAME_IDS.keys.include?(k.to_sym)
@@ -48,7 +47,6 @@ module DragonflyFonts
         end
         res.join
       end
-
     end
   end
 end

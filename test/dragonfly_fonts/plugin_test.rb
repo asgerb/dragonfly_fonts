@@ -2,12 +2,11 @@ require 'test_helper'
 
 module DragonflyFonts
   describe Plugin do
-
     let(:app) { test_app.configure_with(:fonts) }
     let(:font) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
 
     # ---------------------------------------------------------------------
-    
+
     describe 'analysers' do
       it 'adds #bbox' do
         font.must_respond_to :bbox
@@ -27,7 +26,7 @@ module DragonflyFonts
     end
 
     # ---------------------------------------------------------------------
-    
+
     describe 'processors' do
       it 'adds #correct_metrics' do
         font.must_respond_to :correct_metrics
@@ -61,6 +60,5 @@ module DragonflyFonts
         font.must_respond_to :ttf_autohint
       end
     end
-
   end
 end

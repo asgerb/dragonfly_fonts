@@ -4,7 +4,6 @@ require 'nokogiri'
 module DragonflyFonts
   module Processors
     describe SetWoffMetadata do
-
       let(:app) { test_app.configure_with(:fonts) }
       let(:processor) { DragonflyFonts::Processors::SetWoffMetadata.new }
       let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
@@ -33,7 +32,6 @@ module DragonflyFonts
           @woff_meta.xpath('//licensee').first.attribute('name').value.must_equal licensee_name
         end
       end
-
     end
   end
 end

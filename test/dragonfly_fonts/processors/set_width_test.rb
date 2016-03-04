@@ -3,13 +3,12 @@ require 'test_helper'
 module DragonflyFonts
   module Processors
     describe SetWidth do
-
       let(:app) { test_app.configure_with(:fonts) }
       let(:processor) { DragonflyFonts::Processors::SetWidth.new }
 
       let(:font) { Dragonfly::Content.new(app, SAMPLES_DIR.join('Inconsolata.otf')) }
-      
-      let(:glyph) { "A" }
+
+      let(:glyph) { 'A' }
       let(:analyser) { DragonflyFonts::Analysers::Bbox.new }
 
       describe 'relative=0' do
@@ -32,7 +31,6 @@ module DragonflyFonts
           processor.call(font, 200, 2)
         end
       end
-
     end
   end
 end
