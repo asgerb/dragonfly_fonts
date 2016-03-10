@@ -7,6 +7,7 @@ require 'dragonfly_fonts/processors/correct_metrics'
 require 'dragonfly_fonts/processors/encode'
 require 'dragonfly_fonts/processors/extract_glyph'
 require 'dragonfly_fonts/processors/normalize_names'
+require 'dragonfly_fonts/processors/set_dimensions'
 require 'dragonfly_fonts/processors/set_ttf_names'
 require 'dragonfly_fonts/processors/set_underline'
 require 'dragonfly_fonts/processors/set_width'
@@ -28,6 +29,7 @@ module DragonflyFonts
       app.add_processor :encode, Processors::Encode.new
       app.add_processor :extract_glyph, Processors::ExtractGlyph.new
       app.add_processor :normalize_names, Processors::NormalizeNames.new
+      app.add_processor :set_dimensions, Processors::SetDimensions.new
       app.add_processor :set_ttf_names, Processors::SetTtfNames.new
       app.add_processor :set_underline, Processors::SetUnderline.new
       app.add_processor :set_width, Processors::SetWidth.new

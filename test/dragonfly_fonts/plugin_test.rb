@@ -44,6 +44,10 @@ module DragonflyFonts
         font.must_respond_to :normalize_names
       end
 
+      it 'adds #set_dimensions' do
+        font.must_respond_to :set_dimensions
+      end
+
       it 'adds #set_ttf_names' do
         font.must_respond_to :set_ttf_names
       end
