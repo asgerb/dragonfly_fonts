@@ -124,6 +124,14 @@ Fix for rejected EOT's in IE8.
 font.normalize_names
 ```
 
+### Set Dimensions
+
+Adjust ascent & descent by an increment of.
+
+```ruby
+font.set_dimensions(ascent: 10, descent: -10)
+```
+
 ### Set TTF Names
 
 Allows to set the following TTF properties: `:compatible_full`, `:copyright`, `:description`, `:designer`, `:designer_url`, `:fontname`, `:fullname`, `:license`, `:license_url`, `:manufacturer`, `:postscript_cid`, `:postscript_name`, `:preferred_family`, `:preferred_subfamily`, `:sample_text`, `:trademark`, `:uid`, `:vendor_url`, `:version`, `:weight`. See [docs at Adobe](http://partners.adobe.com/public/developer/opentype/index_name.html#enc4) for more details.
