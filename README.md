@@ -1,5 +1,7 @@
 # Dragonfly Fonts
 
+[![Circle CI](https://circleci.com/gh/tomasc/dragonfly_fonts.svg?style=svg&circle-token=3b836116bd1aaa6b76103b45ab0caef112b3df94)](https://circleci.com/gh/tomasc/dragonfly_fonts)
+
 Wraps common font-related tasks into [Dragonfly](http://markevans.github.io/dragonfly) analysers and processors.
 
 ## Installation
