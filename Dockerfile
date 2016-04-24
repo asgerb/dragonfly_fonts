@@ -8,7 +8,6 @@ RUN mkdir lib
 RUN mkdir lib/dragonfly_fonts
 
 ADD Gemfile Gemfile
-ADD Gemfile.lock Gemfile.lock
 ADD dragonfly_fonts.gemspec dragonfly_fonts.gemspec
 ADD lib/dragonfly_fonts/version.rb lib/dragonfly_fonts/version.rb
 
