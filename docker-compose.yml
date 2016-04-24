@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  test:
+    build:
+      context: .
+      dockerfile: 'Dockerfile'
+    command: 'bundle exec guard'
+    environment:
+      RAILS_ENV: test
+    privileged: true
+    tty: true
+    working_dir: /app
+    volumes:
+      - .:/app
