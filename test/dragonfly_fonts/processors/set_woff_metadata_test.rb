@@ -16,7 +16,7 @@ module DragonflyFonts
         let(:woff_meta) { Nokogiri::XML(asset.set_woff_metadata(uniqueid, licensee_name).font_info['woff_metadata']) }
 
         it 'sets uniqueid' do
-          woff_meta.xpath('//uniqueid').first.attribute('id').value.must_match /\A#{uniqueid}/
+          woff_meta.xpath('//uniqueid').first.attribute('id').value.must_match(/\A#{uniqueid}/)
         end
 
         it 'sets licensee' do
