@@ -24,7 +24,7 @@ module DragonflyFonts
         end
 
         it '#min_y' do
-          bbox.min_y.must_equal -0.863281
+          bbox.min_y.must_equal(-0.863281)
         end
 
         it '#max_x' do
