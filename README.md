@@ -1,6 +1,6 @@
 # Dragonfly Fonts
 
-[![Circle CI](https://circleci.com/gh/tomasc/dragonfly_fonts.svg?style=svg&circle-token=3b836116bd1aaa6b76103b45ab0caef112b3df94)](https://circleci.com/gh/tomasc/dragonfly_fonts)
+[![Build Status](https://travis-ci.org/tomasc/dragonfly_fonts.svg)](https://travis-ci.org/tomasc/dragonfly_fonts) [![Gem Version](https://badge.fury.io/rb/dragonfly_fonts.svg)](http://badge.fury.io/rb/dragonfly_fonts) [![Coverage Status](https://img.shields.io/coveralls/tomasc/dragonfly_fonts.svg)](https://coveralls.io/r/tomasc/dragonfly_fonts)
 
 Wraps common font-related tasks into [Dragonfly](http://markevans.github.io/dragonfly) analysers and processors.
 
