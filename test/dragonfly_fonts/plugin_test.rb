@@ -23,6 +23,10 @@ module DragonflyFonts
       it 'adds #gsub_tables' do
         font.must_respond_to :gsub_tables
       end
+
+      it 'adds #ot_sanitise' do
+        font.must_respond_to :ot_sanitise
+      end
     end
 
     # ---------------------------------------------------------------------
@@ -42,6 +46,10 @@ module DragonflyFonts
 
       it 'adds #normalize_names' do
         font.must_respond_to :normalize_names
+      end
+
+      it 'adds #ot_sanitise!' do
+        font.must_respond_to :ot_sanitise!
       end
 
       it 'adds #set_dimensions' do

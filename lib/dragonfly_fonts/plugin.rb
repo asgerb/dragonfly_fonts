@@ -2,11 +2,13 @@ require 'dragonfly_fonts/analysers/bbox'
 require 'dragonfly_fonts/analysers/font_info'
 require 'dragonfly_fonts/analysers/glyphs'
 require 'dragonfly_fonts/analysers/gsub_tables'
+require 'dragonfly_fonts/analysers/ot_sanitise'
 
 require 'dragonfly_fonts/processors/correct_metrics'
 require 'dragonfly_fonts/processors/encode'
 require 'dragonfly_fonts/processors/extract_glyph'
 require 'dragonfly_fonts/processors/normalize_names'
+require 'dragonfly_fonts/processors/ot_sanitise'
 require 'dragonfly_fonts/processors/set_dimensions'
 require 'dragonfly_fonts/processors/set_ttf_names'
 require 'dragonfly_fonts/processors/set_underline'
@@ -22,6 +24,7 @@ module DragonflyFonts
       app.add_analyser :font_info, Analysers::FontInfo.new
       app.add_analyser :glyphs, Analysers::Glyphs.new
       app.add_analyser :gsub_tables, Analysers::GsubTables.new
+      app.add_analyser :ot_sanitise, Analysers::OtSanitise.new
 
       # ---------------------------------------------------------------------
 
@@ -29,6 +32,7 @@ module DragonflyFonts
       app.add_processor :encode, Processors::Encode.new
       app.add_processor :extract_glyph, Processors::ExtractGlyph.new
       app.add_processor :normalize_names, Processors::NormalizeNames.new
+      app.add_processor :ot_sanitise!, Processors::OtSanitise.new
       app.add_processor :set_dimensions, Processors::SetDimensions.new
       app.add_processor :set_ttf_names, Processors::SetTtfNames.new
       app.add_processor :set_underline, Processors::SetUnderline.new

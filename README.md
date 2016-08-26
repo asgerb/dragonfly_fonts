@@ -32,6 +32,10 @@ Using debian/ubuntu packages:
 
     $ sudo apt-get install fontforge python-fontforge
 
+### ot-sanitise
+
+See [ot-sanitise](https://github.com/khaledhosny/ots)
+
 ### ttf2eot
 
 See [ttf2eot](http://code.google.com/p/ttf2eot).
@@ -88,6 +92,15 @@ Returns `Array` of gsub tables in the font.
 font.gsub_tables
 ```
 
+### OT Sanitise
+
+Displays output of the `ot-sanitise` command.
+
+```ruby
+font.ot_sanitise
+
+```
+
 ## Processors
 
 ### Correct Metrics
@@ -124,6 +137,14 @@ Fix for rejected EOT's in IE8.
 
 ```ruby
 font.normalize_names
+```
+
+### OTS
+
+Sanitise OTF/TTF & WOFF/2 font files.
+
+```ruby
+font.ot_sanitise!
 ```
 
 ### Set Dimensions
