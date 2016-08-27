@@ -44,6 +44,10 @@ module DragonflyFonts
         font.must_respond_to :extract_glyph
       end
 
+      it 'adds #fix_dflt_table' do
+        font.must_respond_to :fix_dflt_table
+      end
+
       it 'adds #normalize_names' do
         font.must_respond_to :normalize_names
       end

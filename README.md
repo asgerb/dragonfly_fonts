@@ -32,6 +32,10 @@ Using debian/ubuntu packages:
 
     $ sudo apt-get install fontforge python-fontforge
 
+### fonttools
+
+See [fonttools](https://github.com/behdad/fonttools)
+
 ### ot-sanitise
 
 See [ot-sanitise](https://github.com/khaledhosny/ots)
@@ -113,7 +117,7 @@ font.correct_metrics
 
 ### Encode
 
-Allows for conversion to EOT, OTF, SVG, TTF, WOFF, WOFF2.
+Allows for conversion to EOT, OTF, SVG, TTF, WOFF, WOFF2, TTX.
 
 ```ruby
 font.encode(:woff)
@@ -122,6 +126,7 @@ font.encode(:woff)
 * OTF, SVG, TTF, WOFF conversion is handled by `FontForge`.
 * EOT conversion is handled by `ttf2eot`. The input font needs to be in TTF format. Due to bug in IE, font FullName MUST begin with FamilyName. For example, if FamilyName is fontello, then FullName should be fontello regular and so on. In this condition is not satisfyed, then font will not be shown in IE.
 * WOFF2 conversion is handled by `woff2`.
+* TTX conversion is handled by `ttx` (fonttools).
 
 ### Extract Glyph
 
@@ -129,6 +134,14 @@ Extracts specified glyph in SVG format.
 
 ```ruby
 font.extract_glyph('A')
+```
+
+### Fix DFLT table
+
+Fix for DFLT tables causing issues in Firefox 44.
+
+```ruby
+font.fix_dflt_table
 ```
 
 ### Normalize Names

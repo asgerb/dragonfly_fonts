@@ -7,6 +7,7 @@ require 'dragonfly_fonts/analysers/ot_sanitise'
 require 'dragonfly_fonts/processors/correct_metrics'
 require 'dragonfly_fonts/processors/encode'
 require 'dragonfly_fonts/processors/extract_glyph'
+require 'dragonfly_fonts/processors/fix_dflt_table'
 require 'dragonfly_fonts/processors/normalize_names'
 require 'dragonfly_fonts/processors/ot_sanitise'
 require 'dragonfly_fonts/processors/set_dimensions'
@@ -31,6 +32,7 @@ module DragonflyFonts
       app.add_processor :correct_metrics, Processors::CorrectMetrics.new
       app.add_processor :encode, Processors::Encode.new
       app.add_processor :extract_glyph, Processors::ExtractGlyph.new
+      app.add_processor :fix_dflt_table, Processors::FixDfltTable.new
       app.add_processor :normalize_names, Processors::NormalizeNames.new
       app.add_processor :ot_sanitise!, Processors::OtSanitise.new
       app.add_processor :set_dimensions, Processors::SetDimensions.new

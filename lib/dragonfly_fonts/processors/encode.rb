@@ -7,11 +7,16 @@ module DragonflyFonts
 
       def call(content, format)
         content.shell_update(ext: format, escape: false) do |old_path, new_path|
-          case format.to_sym
-          when :eot then ttf2eot(old_path, new_path)
-          when :otf, :svg, :ttf, :woff then fontforge(old_path, new_path)
-          when :woff2 then woff2(old_path, new_path)
-          else fail UnsupportedFormat
+          if content.ext == 'ttx' || content.meta['format'] == 'ttx'
+            fonttools(old_path, new_path)
+          else
+            case format.to_sym
+            when :eot then ttf2eot(old_path, new_path)
+            when :otf, :svg, :ttf, :woff then fontforge(old_path, new_path)
+            when :ttx then fonttools(old_path, new_path)
+            when :woff2 then woff2(old_path, new_path)
+            else fail UnsupportedFormat
+            end
           end
         end
 
@@ -31,6 +36,16 @@ module DragonflyFonts
 
       def fontforge_command
         'fontforge'
+      end
+
+      # ---------------------------------------------------------------------
+
+      def fonttools(old_path, new_path)
+        "#{fonttools_command} -o #{new_path} #{old_path}"
+      end
+
+      def fonttools_command
+        'ttx'
       end
 
       # ---------------------------------------------------------------------
