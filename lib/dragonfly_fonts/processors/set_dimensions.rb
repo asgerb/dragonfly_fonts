@@ -5,7 +5,7 @@ module DragonflyFonts
         ascent = opts.fetch(:ascent, '')
         descent = opts.fetch(:descent, '')
 
-        content.shell_update do |old_path, new_path|
+        content.shell_update(ext: content.ext || :ttf) do |old_path, new_path|
           "#{dimensions_script} #{old_path} #{new_path} #{Shellwords.escape(ascent)} #{Shellwords.escape(descent)}"
         end
       end

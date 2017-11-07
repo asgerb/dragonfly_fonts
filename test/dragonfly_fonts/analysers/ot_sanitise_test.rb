@@ -8,7 +8,7 @@ module DragonflyFonts
 
       describe 'call' do
         it 'returns Array' do
-          asset.ot_sanitise.must_equal "WARNING: bad range shift\nERROR: OS/2: missing required table\nFailed to sanitise file!\n"
+          asset.ot_sanitise.must_include "WARNING: bad range shift"
         end
       end
     end

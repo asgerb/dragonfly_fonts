@@ -4,7 +4,7 @@ module DragonflyFonts
   module Analysers
     class OtSanitise
       def call(font)
-        `#{ot_sanitise_command} '#{font.path}' 2>&1`
+        `#{ot_sanitise_command} #{font.path} 2>&1`
       end
 
       private

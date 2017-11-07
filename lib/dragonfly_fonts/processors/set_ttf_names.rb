@@ -28,7 +28,7 @@ module DragonflyFonts
       }
 
       def call(font, values = {})
-        font.shell_update do |old_path, new_path|
+        font.shell_update(ext: font.ext || :ttf) do |old_path, new_path|
           "#{fontforge_command} -lang=ff -c 'Open($1); #{command_string(values)} Generate($2);' #{old_path} #{new_path}"
         end
       end

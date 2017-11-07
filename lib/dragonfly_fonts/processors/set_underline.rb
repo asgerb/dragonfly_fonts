@@ -7,7 +7,7 @@ module DragonflyFonts
         upos = opts.fetch(:upos, '')
         uwidth = opts.fetch(:uwidth, '')
 
-        content.shell_update do |old_path, new_path|
+        content.shell_update(ext: content.ext || :ttf) do |old_path, new_path|
           "#{underline_script} #{old_path} #{new_path} #{Shellwords.escape(upos)} #{Shellwords.escape(uwidth)}"
         end
       end

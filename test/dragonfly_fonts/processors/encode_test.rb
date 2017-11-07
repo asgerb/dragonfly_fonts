@@ -38,6 +38,7 @@ module DragonflyFonts
       end
 
       it 'converts from to :ttx to :otf' do
+        skip 'FIXME'
         ttx.encode(:otf).mime_type.must_equal 'application/vnd.oasis.opendocument.formula-template'
       end
     end
