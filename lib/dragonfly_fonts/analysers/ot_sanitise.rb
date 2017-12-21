@@ -10,7 +10,7 @@ module DragonflyFonts
       private
 
       def ot_sanitise_command
-        'ot-sanitise'
+        'ots-sanitize'
       end
     end
   end
