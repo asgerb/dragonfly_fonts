@@ -8,6 +8,11 @@ module DragonflyFonts
           "#{fontforge_command} -lang=ff -c 'Open($1); Select(\"#{glyph}\"); Export(\"#{new_path}\");' #{old_path}"
         end
 
+        font.meta['format'] = format.to_s
+        font.ext = format
+        font.meta['mime_type'] = nil # don't need it as we have ext now
+      end
+
       def update_url(url_attributes, glyph, opts = {})
         format = opts.fetch(:format, :svg)
 
