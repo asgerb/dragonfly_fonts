@@ -7,6 +7,12 @@ module DragonflyFonts
         font.shell_update(ext: format) do |old_path, new_path|
           "#{fontforge_command} -lang=ff -c 'Open($1); Select(\"#{glyph}\"); Export(\"#{new_path}\");' #{old_path}"
         end
+
+      def update_url(url_attributes, glyph, opts = {})
+        format = opts.fetch(:format, :svg)
+
+        url_attributes.ext = format.to_s
+        url_attributes.glyph = glyph
       end
 
       private # =============================================================
