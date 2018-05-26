@@ -5,6 +5,7 @@ require 'dragonfly_fonts/version'
 
 module DragonflyFonts
   class UnsupportedFormat < RuntimeError; end
+  class UnsupportedOutputFormat < RuntimeError; end
 
   SCRIPT_DIR = Pathname.new(File.expand_path('../script', __dir__))
 
@@ -21,4 +22,6 @@ module DragonflyFonts
     TTF_AUTOHINT_SUPPORTED_FORMATS +
     WOFF2_SUPPORTED_FORMATS
   ).uniq.sort
+
+  SUPPORTED_OUTPUT_FORMATS = %w[eot ttf otf svg woff woff2 ttx].freeze
 end

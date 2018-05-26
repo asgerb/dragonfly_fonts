@@ -45,6 +45,7 @@ module DragonflyFonts
       app.add_mime_type 'otf', 'font/otf'
       app.add_mime_type 'woff', 'font/woff'
       app.add_mime_type 'woff2', 'font/woff2'
+      app.add_mime_type 'ttx', 'font/ttx'
     end
   end
 end

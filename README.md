@@ -68,6 +68,7 @@ List of supported formats is available as:
 
 ```ruby
 DragonflyFonts::SUPPORTED_FORMATS # => ["bdf", "dfont", "bin", …]
+DragonflyFonts::SUPPORTED_OUTPUT_FORMATS # => ["eot", "ttf", …]
 ```
 
 ## Analysers
