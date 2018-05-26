@@ -3,7 +3,7 @@ require 'test_helper'
 describe DragonflyFonts::Analysers::Bbox do
   let(:app) { test_app.configure_with(:fonts) }
   let(:analyser) { DragonflyFonts::Analysers::Bbox.new }
-  let(:content) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
+  let(:content) { app.fetch_file SAMPLES_DIR.join('sample.otf') }
 
   let(:bbox) { analyser.call(content, 'A') }
 

@@ -2,7 +2,7 @@ require 'test_helper'
 
 describe DragonflyFonts::Analysers::Glyphs do
   let(:app) { test_app.configure_with(:fonts) }
-  let(:content) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
+  let(:content) { app.fetch_file SAMPLES_DIR.join('sample.otf') }
 
   let(:glyph_A) { content.glyphs.find{ |g| g['glyphname'] == 'A' } }
 

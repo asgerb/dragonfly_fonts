@@ -2,7 +2,7 @@ require 'test_helper'
 
 describe DragonflyFonts::Processors::ExtractGlyph do
   let(:app) { test_app.configure_with(:fonts) }
-  let(:content) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
+  let(:content) { app.fetch_file SAMPLES_DIR.join('sample.otf') }
   let(:processor) { DragonflyFonts::Processors::ExtractGlyph.new }
 
   let(:glyph) { 'A' }

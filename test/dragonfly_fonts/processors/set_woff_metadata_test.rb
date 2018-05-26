@@ -3,7 +3,7 @@ require 'nokogiri'
 
 describe DragonflyFonts::Processors::SetWoffMetadata do
   let(:app) { test_app.configure_with(:fonts) }
-  let(:content) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
+  let(:content) { app.fetch_file SAMPLES_DIR.join('sample.otf') }
 
   let(:uniqueid) { 'UNIQUEID' }
   let(:licensee_name) { 'John Doe' }

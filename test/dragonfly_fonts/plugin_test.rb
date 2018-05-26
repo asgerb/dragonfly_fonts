@@ -2,7 +2,7 @@ require 'test_helper'
 
 describe DragonflyFonts::Plugin do
   let(:app) { test_app.configure_with(:fonts) }
-  let(:content) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
+  let(:content) { app.fetch_file(SAMPLES_DIR.join('sample.otf')) }
 
   describe 'analysers' do
     it { content.must_respond_to :bbox }

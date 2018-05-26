@@ -2,7 +2,7 @@ require 'test_helper'
 
 describe DragonflyFonts::Processors::NormalizeNames do
   let(:app) { test_app.configure_with(:fonts) }
-  let(:asset) { app.fetch_file SAMPLES_DIR.join('Arial.ttf') }
+  let(:asset) { app.fetch_file SAMPLES_DIR.join('sample.ttf') }
 
   # TODO: how to test?
 
