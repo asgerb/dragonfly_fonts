@@ -27,21 +27,24 @@ module DragonflyFonts
         weight: 2
       }
 
-      def call(font, values = {})
-        font.shell_update(ext: font.ext || :ttf) do |old_path, new_path|
-          "#{fontforge_command} -lang=ff -c 'Open($1); #{command_string(values)} Generate($2);' #{old_path} #{new_path}"
+      def call(content, options = {})
+        # TODO: if other then convert first
+        raise UnsupportedFormat unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext)
+
+        content.shell_update(ext: content.ext || 'ttf') do |old_path, new_path|
+          "#{fontforge_command} -lang=ff -c 'Open($1); #{command_string(options)} Generate($2);' #{old_path} #{new_path}"
         end
       end
 
-      private # =============================================================
+      private
 
       def fontforge_command
         'fontforge'
       end
 
-      def command_string(values)
+      def command_string(options)
         res = []
-        values.each do |k, v|
+        options.each do |k, v|
           next unless NAME_IDS.keys.include?(k.to_sym)
           res << "SetTTFName(0x409, #{NAME_IDS[k]}, \"#{Shellwords.escape(v)}\");"
         end

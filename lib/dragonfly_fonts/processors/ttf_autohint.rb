@@ -1,8 +1,11 @@
 module DragonflyFonts
   module Processors
     class TtfAutohint
-      def call(font)
-        font.shell_update(ext: font.ext || :ttf) do |old_path, new_path|
+      def call(content)
+        # TODO: if other then convert first
+        raise UnsupportedFormat unless TTF_AUTOHINT_SUPPORTED_FORMATS.include?(content.ext)
+
+        content.shell_update(ext: content.ext || 'ttf') do |old_path, new_path|
           "#{ttfautohint_command} --strong-stem-width='' --windows-compatibility --composites #{old_path} #{new_path}"
         end
       end
@@ -11,7 +14,7 @@ module DragonflyFonts
         attrs.style = 'ttfautohint'
       end
 
-      private # =============================================================
+      private
 
       def ttfautohint_command
         'ttfautohint'

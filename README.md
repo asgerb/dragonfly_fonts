@@ -36,9 +36,9 @@ Using debian/ubuntu packages:
 
 See [fonttools](https://github.com/behdad/fonttools)
 
-### ot-sanitise
+### ots-sanitize
 
-See [ot-sanitise](https://github.com/khaledhosny/ots)
+See [ots-sanitize](https://github.com/khaledhosny/ots)
 
 ### ttf2eot
 
@@ -60,6 +60,14 @@ Add the `:fonts` plugin to your Dragonfly config block:
 Dragonfly.app.configure do
   plugin :fonts
 end
+```
+
+## Supported Formats
+
+List of supported formats is available as:
+
+```ruby
+DragonflyFonts::SUPPORTED_FORMATS # => ["bdf", "dfont", "bin", …]
 ```
 
 ## Analysers
@@ -96,12 +104,12 @@ Returns `Array` of gsub tables in the font.
 font.gsub_tables
 ```
 
-### OT Sanitise
+### OTS Sanitize
 
-Displays output of the `ot-sanitise` command.
+Displays output of the `ots-sanitize` command.
 
 ```ruby
-font.ot_sanitise
+font.ots_sanitize
 
 ```
 
@@ -154,10 +162,10 @@ font.normalize_names
 
 ### OTS
 
-Sanitise OTF/TTF & WOFF/2 font files.
+Sanitize OTF/TTF & WOFF/2 font files.
 
 ```ruby
-font.ot_sanitise!
+font.ots_sanitize!
 ```
 
 ### Set Dimensions

@@ -1,27 +1,17 @@
 require 'test_helper'
 
-module DragonflyFonts
-  module Analysers
-    describe Glyphs do
-      let(:app) { test_app.configure_with(:fonts) }
-      let(:asset) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
+describe DragonflyFonts::Analysers::Glyphs do
+  let(:app) { test_app.configure_with(:fonts) }
+  let(:content) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
 
-      let(:glyph_A) { asset.glyphs.find{ |g| g['glyphname'] == 'A' } }
+  let(:glyph_A) { content.glyphs.find{ |g| g['glyphname'] == 'A' } }
 
-      describe 'call' do
-        it 'returns Array' do
-          asset.glyphs.must_be_kind_of Array
-        end
+  it { content.glyphs.must_be_kind_of Array }
 
-        it 'returns properties per each glyph' do
-          glyph_A['glyphclass'].wont_be_nil
-          glyph_A['glyphname'].wont_be_nil
-          glyph_A['encoding'].wont_be_nil
-          glyph_A['script'].wont_be_nil
-          glyph_A['width'].wont_be_nil
-          glyph_A['unicode'].wont_be_nil
-        end
-      end
-    end
-  end
+  it { glyph_A['encoding'].must_equal 65 }
+  it { glyph_A['glyphclass'].must_equal "baseglyph" }
+  it { glyph_A['glyphname'].must_equal "A" }
+  it { glyph_A['script'].must_equal "latn" }
+  it { glyph_A['unicode'].must_equal 65 }
+  it { glyph_A['width'].must_equal 500 }
 end

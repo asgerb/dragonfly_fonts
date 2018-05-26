@@ -1,88 +1,30 @@
 require 'test_helper'
 
-module DragonflyFonts
-  describe Plugin do
-    let(:app) { test_app.configure_with(:fonts) }
-    let(:font) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
+describe DragonflyFonts::Plugin do
+  let(:app) { test_app.configure_with(:fonts) }
+  let(:content) { app.fetch_file(SAMPLES_DIR.join('Inconsolata.otf')) }
 
-    # ---------------------------------------------------------------------
+  describe 'analysers' do
+    it { content.must_respond_to :bbox }
+    it { content.must_respond_to :font_info }
+    it { content.must_respond_to :glyphs }
+    it { content.must_respond_to :gsub_tables }
+    it { content.must_respond_to :ots_sanitize }
+  end
 
-    describe 'analysers' do
-      it 'adds #bbox' do
-        font.must_respond_to :bbox
-      end
-
-      it 'adds #font_info' do
-        font.must_respond_to :font_info
-      end
-
-      it 'adds #glyphs' do
-        font.must_respond_to :glyphs
-      end
-
-      it 'adds #gsub_tables' do
-        font.must_respond_to :gsub_tables
-      end
-
-      it 'adds #ot_sanitise' do
-        font.must_respond_to :ot_sanitise
-      end
-    end
-
-    # ---------------------------------------------------------------------
-
-    describe 'processors' do
-      it 'adds #correct_metrics' do
-        font.must_respond_to :correct_metrics
-      end
-
-      it 'adds #encode' do
-        font.must_respond_to :encode
-      end
-
-      it 'adds #extract_glyph' do
-        font.must_respond_to :extract_glyph
-      end
-
-      it 'adds #fix_dflt_table' do
-        font.must_respond_to :fix_dflt_table
-      end
-
-      it 'adds #normalize_names' do
-        font.must_respond_to :normalize_names
-      end
-
-      it 'adds #ot_sanitise!' do
-        font.must_respond_to :ot_sanitise!
-      end
-
-      it 'adds #set_dimensions' do
-        font.must_respond_to :set_dimensions
-      end
-
-      it 'adds #set_ttf_names' do
-        font.must_respond_to :set_ttf_names
-      end
-
-      it 'adds #set_underline' do
-        font.must_respond_to :set_underline
-      end
-
-      it 'adds #set_width' do
-        font.must_respond_to :set_width
-      end
-
-      it 'adds #set_woff_metadata' do
-        font.must_respond_to :set_woff_metadata
-      end
-
-      it 'adds #ttf_autohint' do
-        font.must_respond_to :ttf_autohint
-      end
-
-      it 'adds #web_friendly' do
-        font.must_respond_to :web_friendly
-      end
-    end
+  describe 'processors' do
+    it { content.must_respond_to :correct_metrics }
+    it { content.must_respond_to :encode }
+    it { content.must_respond_to :extract_glyph }
+    it { content.must_respond_to :fix_dflt_table }
+    it { content.must_respond_to :normalize_names }
+    it { content.must_respond_to :ots_sanitize! }
+    it { content.must_respond_to :set_dimensions }
+    it { content.must_respond_to :set_ttf_names }
+    it { content.must_respond_to :set_underline }
+    it { content.must_respond_to :set_width }
+    it { content.must_respond_to :set_woff_metadata }
+    it { content.must_respond_to :ttf_autohint }
+    it { content.must_respond_to :web_friendly }
   end
 end
