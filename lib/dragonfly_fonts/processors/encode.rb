@@ -17,13 +17,11 @@ module DragonflyFonts
         end
 
         content.shell_update(ext: format, escape: false) do |old_path, new_path|
-          # if content.ext == 'ttx' || content.meta['format'] == 'ttx'
-          #   fonttools(old_path, new_path)
-          # else
-          case format
-          when 'eot' then ttf2eot(old_path, new_path)
-          when 'ttx' then fonttools(old_path, new_path)
-          when 'woff2' then woff2(old_path, new_path)
+          case
+          when content.ext == 'woff2' && format == 'ttf' then woff2_decompress(old_path, new_path)
+          when format == 'eot' then ttf2eot(old_path, new_path)
+          when format == 'ttx' then fonttools(old_path, new_path)
+          when format == 'woff2' then woff2_compress(old_path, new_path)
           else fontforge(old_path, new_path)
           end
         end
@@ -62,12 +60,26 @@ module DragonflyFonts
         'ttf2eot'
       end
 
-      def woff2(old_path, new_path)
-        "#{woff2_command} #{old_path} && mv #{old_path.gsub(/\.\w{3,5}\z/, '.woff2')} #{new_path}"
+      def woff2_compress(old_path, new_path)
+        temp_file = Tempfile.new(['font', '.woff2']).tap do |file|
+          file.write(File.read(old_path))
+        end
+        "#{woff2_compress_command} #{temp_file.path} && mv #{temp_file.path.gsub(/\.\w{3,5}\z/, '.woff2')} #{new_path}"
       end
 
-      def woff2_command
+      def woff2_compress_command
         'woff2_compress'
+      end
+
+      def woff2_decompress(old_path, new_path)
+        temp_file = Tempfile.new(['font', '.woff2']).tap do |file|
+          file.write(File.read(old_path))
+        end
+        "#{woff2_decompress_command} #{temp_file.path} && mv #{temp_file.path.gsub(/\.\w{3,5}\z/, '.ttf')} #{new_path}"
+      end
+
+      def woff2_decompress_command
+        'woff2_decompress'
       end
     end
   end

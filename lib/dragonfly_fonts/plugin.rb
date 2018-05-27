@@ -28,7 +28,6 @@ module DragonflyFonts
       app.add_analyser :ots_sanitize, Analysers::OtsSanitize.new
 
       app.add_processor :correct_metrics, Processors::CorrectMetrics.new
-      app.add_processor :encode, Processors::Encode.new
       app.add_processor :extract_glyph, Processors::ExtractGlyph.new
       app.add_processor :fix_dflt_table, Processors::FixDfltTable.new
       app.add_processor :normalize_names, Processors::NormalizeNames.new
@@ -40,6 +39,28 @@ module DragonflyFonts
       app.add_processor :set_woff_metadata, Processors::SetWoffMetadata.new
       app.add_processor :ttf_autohint, Processors::TtfAutohint.new
       app.add_processor :web_friendly, Processors::WebFriendly.new
+
+      app.add_processor :encode do |content, format, options = {}|
+        case content.ext
+        when 'ttx'
+          # when ttf pre-convert to otf
+          Processors::Encode.new.call(content, 'otf', options) unless %w[font/ttf font/otf].include?(content.mime_type)
+        when 'woff2'
+          # when woff2 pre-convert to ttf
+          Processors::Encode.new.call(content, 'ttf', options)
+        end
+
+        case format
+        when 'eot'
+          # when converting to eot supply ttf
+          Processors::Encode.new.call(content, 'ttf', options) unless %w[font/ttf].include?(content.mime_type)
+        when 'woff2'
+          # when converting to woff2 supply otf
+          Processors::Encode.new.call(content, 'otf', options) unless %w[font/ttf font/otf].include?(content.mime_type)
+        end
+
+        Processors::Encode.new.call(content, format, options)
+      end
 
       app.add_mime_type 'ttf', 'font/ttf'
       app.add_mime_type 'otf', 'font/otf'

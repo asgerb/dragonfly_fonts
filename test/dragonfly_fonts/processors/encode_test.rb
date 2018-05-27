@@ -5,7 +5,7 @@ describe DragonflyFonts::Processors::Encode do
 
   describe 'SUPPORTED_FORMATS' do
     DragonflyFonts::SUPPORTED_FORMATS.each do |format|
-      unless File.exists?(SAMPLES_DIR.join("sample.#{format}"))
+      unless File.exist?(SAMPLES_DIR.join("sample.#{format}"))
         it(format) { skip "sample.#{format} does not exist, skipping" }
         next
       end

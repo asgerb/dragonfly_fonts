@@ -3,7 +3,7 @@ require 'test_helper'
 
 describe DragonflyFonts::Processors::FixDfltTable do
   let(:app) { test_app.configure_with(:fonts) }
-  let(:content) { app.fetch_file SAMPLES_DIR.join('Inconsolata.ttx') }
+  let(:content) { app.fetch_file SAMPLES_DIR.join('sample.ttx') }
 
   let(:result) { content.fix_dflt_table }
   let(:result_data) { Nokogiri::XML(result.data) }
