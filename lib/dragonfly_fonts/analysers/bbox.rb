@@ -4,7 +4,6 @@ module DragonflyFonts
   module Analysers
     class Bbox
       def call(content, glyph)
-        # TODO: if woff2 then convert first
         return {} unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext)
 
         res = content.shell_eval do |path|

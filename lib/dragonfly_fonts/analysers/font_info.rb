@@ -5,7 +5,6 @@ module DragonflyFonts
     class FontInfo
       # see http://dmtr.org/ff.php#Font
       def call(content)
-        # TODO: if woff2 then convert first
         return {} unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext)
 
         details = content.shell_eval do |path|
