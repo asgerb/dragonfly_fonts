@@ -7,4 +7,8 @@ describe DragonflyFonts::Processors::TtfAutohint do
   # TODO: how to test this better?
 
   it { content.ttf_autohint.mime_type.must_equal 'font/ttf' }
+
+  describe 'tempfile has extension' do
+    it { content.ttf_autohint.tempfile.path.must_match /\.ttf\z/ }
+  end
 end

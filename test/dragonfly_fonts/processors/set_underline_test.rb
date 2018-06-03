@@ -9,4 +9,8 @@ describe DragonflyFonts::Processors::SetUnderline do
 
   it { content.set_underline(upos: upos).font_info['upos'].must_equal upos }
   it { content.set_underline(uwidth: uwidth).font_info['uwidth'].must_equal uwidth }
+
+  describe 'tempfile has extension' do
+    it { content.set_underline(upos: upos).tempfile.path.must_match /\.otf\z/ }
+  end
 end

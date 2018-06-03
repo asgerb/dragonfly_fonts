@@ -14,4 +14,8 @@ describe DragonflyFonts::Processors::SetDimensions do
 
   it { content.set_dimensions(ascent: ascent).font_info['ascent'].must_equal (@original_ascent + ascent) }
   it { content.set_dimensions(descent: descent).font_info['descent'].must_equal (@original_descent + descent) }
+
+  describe 'tempfile has extension' do
+    it { content.set_dimensions(ascent: ascent, descent: descent).tempfile.path.must_match /\.otf\z/ }
+  end
 end

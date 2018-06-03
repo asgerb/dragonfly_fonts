@@ -27,4 +27,8 @@ describe DragonflyFonts::Processors::SetWidth do
   #   let(:relative) { 2 }
   #   it { bbox.width.must_equal @default_bbox.width * width / 100.0 }
   # end
+
+  describe 'tempfile has extension' do
+    it { content.set_width(width, 0).tempfile.path.must_match /\.otf\z/ }
+  end
 end

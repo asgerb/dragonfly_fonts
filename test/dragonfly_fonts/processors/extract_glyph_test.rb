@@ -19,4 +19,8 @@ describe DragonflyFonts::Processors::ExtractGlyph do
 
     it { url_attributes.ext.must_equal 'svg' }
   end
+
+  describe 'tempfile has extension' do
+    it { content.extract_glyph(glyph).tempfile.path.must_match /\.svg\z/ }
+  end
 end

@@ -7,4 +7,8 @@ describe DragonflyFonts::Processors::CorrectMetrics do
   # TODO: figure out how to test
   # it { content.correct_metrics.font_info.must_equal '…' }
   # it { content.correct_metrics.font_info.must_equal '…' }
+
+  describe 'tempfile has extension' do
+    it { content.correct_metrics.tempfile.path.must_match /\.otf\z/ }
+  end
 end

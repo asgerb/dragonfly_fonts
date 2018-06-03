@@ -12,4 +12,8 @@ describe DragonflyFonts::Processors::SetWoffMetadata do
 
   it { woff_meta.xpath('//uniqueid').first.attribute('id').value.must_match(/\A#{uniqueid}/) }
   it { woff_meta.xpath('//licensee').first.attribute('name').value.must_equal licensee_name }
+
+  describe 'tempfile has extension' do
+    it { content.set_woff_metadata(uniqueid, licensee_name).tempfile.path.must_match /\.woff\z/ }
+  end
 end

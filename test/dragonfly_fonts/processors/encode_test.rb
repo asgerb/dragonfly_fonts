@@ -17,6 +17,7 @@ describe DragonflyFonts::Processors::Encode do
         result.ext.must_equal output_format
         result.mime_type.must_equal app.mime_types[".#{output_format}"]
         result.size.must_be :>, 0
+        result.tempfile.path.must_match /\.#{output_format}\z/
       end
     end
   end
