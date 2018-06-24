@@ -10,7 +10,15 @@ module DragonflyFonts
           "#{DragonflyFonts::SCRIPT_DIR.join('glyphs.py')} #{path}"
         end
 
-        JSON.parse(details)
+        JSON.parse(details).map do |item|
+          item["glyphname"] = item.delete("n")
+          item["glyphclass"] = item.delete("c")
+          item["script"] = item.delete("s")
+          item["encoding"] = item.delete("e")
+          item["unicode"] = item.delete("u")
+          item["width"] = item.delete("w")
+          item
+        end
       end
     end
   end
