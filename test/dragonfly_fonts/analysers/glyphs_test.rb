@@ -8,6 +8,7 @@ describe DragonflyFonts::Analysers::Glyphs do
 
   it { content.glyphs.must_be_kind_of Array }
 
+  it { glyph_A['altuni'].must_be_nil }
   it { glyph_A['encoding'].must_equal 65 }
   it { glyph_A['glyphclass'].must_equal "baseglyph" }
   it { glyph_A['glyphname'].must_equal "A" }

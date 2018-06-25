@@ -7,9 +7,10 @@ def main():
     font = fontforge.open(f)
 
   glyphs = []
-  
+
   for (i,g) in enumerate(font.glyphs()):
     glyphs.append({
+      'altuni': g.altuni,
       'glyphname': g.glyphname,
       'glyphclass': g.glyphclass,
       'script': g.script,
@@ -19,7 +20,6 @@ def main():
     })
 
   print json.dumps(glyphs)
-
 
 if __name__ == '__main__':
   main()
