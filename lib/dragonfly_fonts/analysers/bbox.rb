@@ -10,6 +10,8 @@ module DragonflyFonts
           "#{fontforge_command} -lang=ff -c 'Open($1); Select(\"#{glyph}\"); Print(GlyphInfo(\"BBox\"));' #{path}"
         end
 
+        return {} unless res.present?
+
         dimensions = JSON.parse(res)
 
         Struct::Bbox.new(

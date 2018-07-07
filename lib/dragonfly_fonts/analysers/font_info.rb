@@ -11,6 +11,8 @@ module DragonflyFonts
           "#{DragonflyFonts::SCRIPT_DIR.join('font_info.py')} #{path}"
         end
 
+        return [] unless details.present?
+
         JSON.parse(details)
       end
     end
