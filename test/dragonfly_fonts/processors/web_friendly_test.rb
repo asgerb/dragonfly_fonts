@@ -1,18 +1,14 @@
 require 'test_helper'
 
-module DragonflyFonts
-  module Processors
-    describe WebFriendly do
-      let(:app) { test_app.configure_with(:fonts) }
-      let(:asset) { app.fetch_file SAMPLES_DIR.join('Arial.ttf') }
+describe DragonflyFonts::Processors::WebFriendly do
+  let(:app) { test_app.configure_with(:fonts) }
+  let(:content) { app.fetch_file SAMPLES_DIR.join('sample.ttf') }
 
-      # =====================================================================
+  # TODO: how to test this?
 
-      # TODO: how to test this?
+  it { content.web_friendly.mime_type.must_equal 'font/ttf' }
 
-      it 'works' do
-        asset.web_friendly.mime_type.must_equal 'application/octet-stream'
-      end
-    end
+  describe 'tempfile has extension' do
+    it { content.web_friendly.tempfile.path.must_match /\.ttf\z/ }
   end
 end

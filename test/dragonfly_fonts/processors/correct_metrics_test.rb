@@ -1,22 +1,14 @@
 require 'test_helper'
 
-module DragonflyFonts
-  module Processors
-    describe CorrectMetrics do
-      let(:app) { test_app.configure_with(:fonts) }
-      let(:asset) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
+describe DragonflyFonts::Processors::CorrectMetrics do
+  let(:app) { test_app.configure_with(:fonts) }
+  let(:content) { app.fetch_file SAMPLES_DIR.join('sample.otf') }
 
-      # =====================================================================
+  # TODO: figure out how to test
+  # it { content.correct_metrics.font_info.must_equal '…' }
+  # it { content.correct_metrics.font_info.must_equal '…' }
 
-      it 'adjusts ascent value' do
-        skip 'need to find font that is changed by this'
-        asset.correct_metrics.font_info.must_equal '…'
-      end
-
-      it 'adjusts descent value' do
-        skip 'need to find font that is changed by this'
-        asset.correct_metrics.font_info.must_equal '…'
-      end
-    end
+  describe 'tempfile has extension' do
+    it { content.correct_metrics.tempfile.path.must_match /\.otf\z/ }
   end
 end

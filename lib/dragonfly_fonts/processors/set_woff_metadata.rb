@@ -3,8 +3,11 @@ require 'shellwords'
 module DragonflyFonts
   module Processors
     class SetWoffMetadata
-      def call(font, uniqueid, licensee_name = '')
-        font.shell_update(ext: :woff) do |old_path, new_path|
+      def call(content, uniqueid, licensee_name = '')
+        # TODO: make sure this works for WOFF2
+        raise UnsupportedFormat unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext)
+
+        content.shell_update(ext: 'woff') do |old_path, new_path|
           "#{woff_meta_script} #{old_path} #{new_path} #{Shellwords.escape(uniqueid)} #{Shellwords.escape(licensee_name)}"
         end
       end
@@ -13,7 +16,7 @@ module DragonflyFonts
         attrs.style = 'woffmeta'
       end
 
-      private # =============================================================
+      private
 
       def woff_meta_script
         DragonflyFonts::SCRIPT_DIR.join('woff_meta.py')

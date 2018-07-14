@@ -1,45 +1,23 @@
 require 'test_helper'
 
-module DragonflyFonts
-  module Processors
-    describe Encode do
-      let(:app) { test_app.configure_with(:fonts) }
-      let(:otf) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
-      let(:ttx) { app.fetch_file SAMPLES_DIR.join('Inconsolata.ttx') }
+describe DragonflyFonts::Processors::Encode do
+  let(:app) { test_app.configure_with(:fonts) }
 
-      # =====================================================================
+  DragonflyFonts::SUPPORTED_FORMATS.each do |format|
+    unless File.exist?(SAMPLES_DIR.join("sample.#{format}"))
+      it(format) { skip "sample.#{format} does not exist, skipping" }
+      next
+    end
 
-      it 'allows to convert to :eot' do
-        otf.encode(:eot).mime_type.must_equal 'application/vnd.ms-fontobject'
-      end
+    let(:content) { app.fetch_file SAMPLES_DIR.join("sample.#{format}") }
 
-      it 'allows to convert to :otf' do
-        otf.encode(:otf).mime_type.must_equal 'application/vnd.oasis.opendocument.formula-template'
-      end
-
-      it 'allows to convert to :ttf' do
-        otf.encode(:ttf).mime_type.must_equal 'application/octet-stream'
-      end
-
-      it 'allows to convert to :svg' do
-        otf.encode(:svg).mime_type.must_equal 'image/svg+xml'
-      end
-
-      it 'allows to convert to :woff' do
-        otf.encode(:woff).mime_type.must_equal 'application/font-woff'
-      end
-
-      it 'allows to convert to :woff2' do
-        otf.encode(:woff2).data.must_match(/\AwOF2OTTO/)
-      end
-
-      it 'converts to :ttx' do
-        otf.encode(:ttx).data.must_match(/\<ttFont sfntVersion="OTTO" ttLibVersion="\d+?\.\d+?"\>/)
-      end
-
-      it 'converts from to :ttx to :otf' do
-        skip 'FIXME'
-        ttx.encode(:otf).mime_type.must_equal 'application/vnd.oasis.opendocument.formula-template'
+    DragonflyFonts::SUPPORTED_OUTPUT_FORMATS.each do |output_format|
+      it("#{format} to #{output_format}") do
+        result = content.encode(output_format)
+        result.ext.must_equal output_format
+        result.mime_type.must_equal app.mime_types[".#{output_format}"]
+        result.size.must_be :>, 0
+        result.tempfile.path.must_match /\.#{output_format}\z/
       end
     end
   end

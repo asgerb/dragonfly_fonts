@@ -1,18 +1,14 @@
 require 'test_helper'
 
-module DragonflyFonts
-  module Processors
-    describe TtfAutohint do
-      let(:app) { test_app.configure_with(:fonts) }
-      let(:asset) { app.fetch_file SAMPLES_DIR.join('Arial.ttf') }
+describe DragonflyFonts::Processors::TtfAutohint do
+  let(:app) { test_app.configure_with(:fonts) }
+  let(:content) { app.fetch_file SAMPLES_DIR.join('sample.ttf') }
 
-      # =====================================================================
+  # TODO: how to test this better?
 
-      # TODO: how to test this better?
+  it { content.ttf_autohint.mime_type.must_equal 'font/ttf' }
 
-      it 'works' do
-        asset.ttf_autohint.mime_type.must_equal 'application/octet-stream'
-      end
-    end
+  describe 'tempfile has extension' do
+    it { content.ttf_autohint.tempfile.path.must_match /\.ttf\z/ }
   end
 end

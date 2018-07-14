@@ -1,41 +1,26 @@
 require 'test_helper'
 
-module DragonflyFonts
-  module Processors
-    describe ExtractGlyph do
-      let(:app) { test_app.configure_with(:fonts) }
-      let(:asset) { app.fetch_file SAMPLES_DIR.join('Inconsolata.otf') }
+describe DragonflyFonts::Processors::ExtractGlyph do
+  let(:app) { test_app.configure_with(:fonts) }
+  let(:content) { app.fetch_file SAMPLES_DIR.join('sample.ttf') }
+  let(:processor) { DragonflyFonts::Processors::ExtractGlyph.new }
 
-      let(:glyph) { 'A' }
+  let(:glyph) { 'A' }
 
-      let (:processor) { DragonflyFonts::Processors::ExtractGlyph.new }
+  it { content.extract_glyph(glyph).data.must_include '</svg>' }
+  it { content.extract_glyph(glyph, format: :svg).data.must_include '</svg>' }
+  it { content.extract_glyph(glyph).ext.must_equal 'svg' }
+  it { content.extract_glyph(glyph).meta['format'].must_equal 'svg' }
 
-      # =====================================================================
+  describe 'url' do
+    let(:url_attributes) { OpenStruct.new }
 
-      it 'extracts specified glyph in SVG by default' do
-        asset.extract_glyph(glyph).data.must_include '</svg>'
-      end
+    before { processor.update_url(url_attributes, glyph) }
 
-      describe 'format' do
-        let (:url_attributes) { OpenStruct.new }
+    it { url_attributes.ext.must_equal 'svg' }
+  end
 
-        it 'allows to specify format' do
-          asset.extract_glyph(glyph, format: :svg).data.must_include '</svg>'
-        end
-
-        it 'updates the file ext to SVG by default' do
-          asset.extract_glyph(glyph).ext.must_equal 'svg'
-        end
-
-        it 'updates the file meta format to SVG by default' do
-          asset.extract_glyph(glyph).meta['format'].must_equal 'svg'
-        end
-
-        it 'updates the url extension to SVG by default' do
-          processor.update_url(url_attributes, glyph)
-          url_attributes.ext.must_equal 'svg'
-        end
-      end
-    end
+  describe 'tempfile has extension' do
+    it { content.extract_glyph(glyph).tempfile.path.must_match /\.svg\z/ }
   end
 end
