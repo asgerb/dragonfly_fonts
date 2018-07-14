@@ -1,4 +1,6 @@
 require 'dragonfly'
+require 'active_support/core_ext/object/blank'
+
 require 'dragonfly_fonts/plugin'
 require 'dragonfly_fonts/unicode_ranges'
 require 'dragonfly_fonts/version'
