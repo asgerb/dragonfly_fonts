@@ -41,6 +41,6 @@ describe DragonflyFonts::Analysers::FontInfo do
   end
 
   it { analyser.call(content)['familyname'].must_equal 'Inconsolata' }
-  it { analyser.call(content)['fullname'].must_equal 'Inconsolata' }
-  it { analyser.call(content)['weight'].must_equal 'Medium' }
+  it { analyser.call(content)['fullname'].must_equal 'Inconsolata Regular' }
+  it { analyser.call(content)['weight'].must_equal 'Regular' }
 end
