@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.2
+
+* improved `SUPPORTED_FORMATS` matching that ignores case
+
 ## 1.0.1
 
 * add `hhea_*` and `os2_*` options to font info

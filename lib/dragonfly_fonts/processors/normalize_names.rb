@@ -2,8 +2,8 @@ module DragonflyFonts
   module Processors
     class NormalizeNames
       def call(content, options = {})
-        # TODO: if other then convert first
-        raise UnsupportedFormat unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext)
+        raise UnsupportedFormat unless content.ext
+        raise UnsupportedFormat unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext.downcase)
 
         content.shell_update(ext: content.ext || 'ttf') do |old_path, new_path|
           "#{fontforge_command} -script #{DragonflyFonts::SCRIPT_DIR.join('normalize_names.sh')} #{old_path} #{new_path}"

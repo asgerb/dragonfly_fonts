@@ -2,8 +2,8 @@ module DragonflyFonts
   module Processors
     class TtfAutohint
       def call(content)
-        # TODO: if other then convert first
-        raise UnsupportedFormat unless TTF_AUTOHINT_SUPPORTED_FORMATS.include?(content.ext)
+        raise UnsupportedFormat unless content.ext
+        raise UnsupportedFormat unless TTF_AUTOHINT_SUPPORTED_FORMATS.include?(content.ext.downcase)
 
         content.shell_update(ext: content.ext || 'ttf') do |old_path, new_path|
           "#{ttfautohint_command} --strong-stem-width='' --windows-compatibility --composites #{old_path} #{new_path}"

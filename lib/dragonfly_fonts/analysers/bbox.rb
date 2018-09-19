@@ -4,7 +4,8 @@ module DragonflyFonts
   module Analysers
     class Bbox
       def call(content, glyph)
-        return {} unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext)
+        return {} unless content.ext
+        return {} unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext.downcase)
 
         res = content.shell_eval do |path|
           "#{fontforge_command} -lang=ff -c 'Open($1); Select(\"#{glyph}\"); Print(GlyphInfo(\"BBox\"));' #{path}"

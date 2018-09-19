@@ -4,11 +4,12 @@ module DragonflyFonts
   module Processors
     class Encode
       def call(content, format, options = {})
-        raise UnsupportedFormat unless SUPPORTED_FORMATS.include?(content.ext)
+        raise UnsupportedFormat unless content.ext
+        raise UnsupportedFormat unless SUPPORTED_FORMATS.include?(content.ext.downcase)
 
         format = format.to_s
 
-        raise UnsupportedOutputFormat unless SUPPORTED_OUTPUT_FORMATS.include?(format)
+        raise UnsupportedOutputFormat unless SUPPORTED_OUTPUT_FORMATS.include?(format.downcase)
 
         if content.mime_type == Rack::Mime.mime_type(".#{format}")
           content.ext ||= format

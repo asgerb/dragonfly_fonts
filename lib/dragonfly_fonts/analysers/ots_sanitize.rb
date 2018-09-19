@@ -4,7 +4,8 @@ module DragonflyFonts
   module Analysers
     class OtsSanitize
       def call(content)
-        return unless OT_SANITISE_SUPPORTED_FORMATS.include?(content.ext)
+        return unless content.ext
+        return unless OT_SANITISE_SUPPORTED_FORMATS.include?(content.ext.downcase)
 
         `#{ots_sanitize_command} #{content.path} 2>&1`
       end

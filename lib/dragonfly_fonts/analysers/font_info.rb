@@ -5,7 +5,8 @@ module DragonflyFonts
     class FontInfo
       # see http://dmtr.org/ff.php#Font
       def call(content)
-        return {} unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext)
+        return {} unless content.ext
+        return {} unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext.downcase)
 
         details = content.shell_eval do |path|
           "#{DragonflyFonts::SCRIPT_DIR.join('font_info.py')} #{path}"

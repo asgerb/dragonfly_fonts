@@ -2,8 +2,8 @@ module DragonflyFonts
   module Processors
     class SetDimensions
       def call(content, options = {})
-        # TODO: if other then convert first
-        raise UnsupportedFormat unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext)
+        raise UnsupportedFormat unless content.ext
+        raise UnsupportedFormat unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext.downcase)
 
         options = options.each_with_object({}) { |(k, v), memo| memo[k.to_s] = v } # stringify keys
         ascent = options.fetch('ascent', '')

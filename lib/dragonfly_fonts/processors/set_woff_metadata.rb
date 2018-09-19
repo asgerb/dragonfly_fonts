@@ -4,8 +4,8 @@ module DragonflyFonts
   module Processors
     class SetWoffMetadata
       def call(content, uniqueid, licensee_name = '')
-        # TODO: make sure this works for WOFF2
-        raise UnsupportedFormat unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext)
+        raise UnsupportedFormat unless content.ext
+        raise UnsupportedFormat unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext.downcase)
 
         content.shell_update(ext: 'woff') do |old_path, new_path|
           "#{woff_meta_script} #{old_path} #{new_path} #{Shellwords.escape(uniqueid)} #{Shellwords.escape(licensee_name)}"
