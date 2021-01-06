@@ -19,7 +19,7 @@ def main():
       'width': g.width
     })
 
-  print json.dumps(glyphs)
+  print(json.dumps(glyphs))
 
 if __name__ == '__main__':
   main()

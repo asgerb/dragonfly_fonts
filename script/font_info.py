@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-import fontforge, json, sys
+import json, sys
+from fontforge import *
 
 def main():
   for f in sys.argv[1:] :
@@ -78,7 +79,7 @@ def main():
     'x_height': font.xHeight
   }
 
-  print json.dumps(font_info)
+  print(json.dumps(font_info))
 
 if __name__ == '__main__':
   main()

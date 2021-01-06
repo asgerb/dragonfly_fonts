@@ -5,7 +5,7 @@ import fontforge, json, sys
 def main():
   for f in sys.argv[1:] :
     font = fontforge.open(f)
-  
+
   gsub_tables = []
 
   for gsub in font.gsub_lookups:
@@ -37,7 +37,7 @@ def main():
       'subtables': subtables
     })
 
-  print json.dumps(gsub_tables)
+  print(json.dumps(gsub_tables))
 
 if __name__ == '__main__':
   main()
