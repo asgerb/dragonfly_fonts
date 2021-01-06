@@ -10,7 +10,7 @@ module DragonflyFonts
         descent = options.fetch('descent', '')
 
         content.shell_update(ext: content.ext || 'ttf') do |old_path, new_path|
-          "#{dimensions_script} #{old_path} #{new_path} #{Shellwords.escape(ascent)} #{Shellwords.escape(descent)}"
+          "fontforge -lang=py #{dimensions_script} #{old_path} #{new_path} #{Shellwords.escape(ascent)} #{Shellwords.escape(descent)}"
         end
       end
 

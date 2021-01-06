@@ -12,7 +12,7 @@ module DragonflyFonts
         uwidth = options.fetch('uwidth', '')
 
         content.shell_update(ext: content.ext || 'ttf') do |old_path, new_path|
-          "#{underline_script} #{old_path} #{new_path} #{Shellwords.escape(upos)} #{Shellwords.escape(uwidth)}"
+          "fontforge -lang=py #{underline_script} #{old_path} #{new_path} #{Shellwords.escape(upos)} #{Shellwords.escape(uwidth)}"
         end
       end
 

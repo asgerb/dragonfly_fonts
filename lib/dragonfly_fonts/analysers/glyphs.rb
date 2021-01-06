@@ -11,7 +11,7 @@ module DragonflyFonts
         #   "#{DragonflyFonts::SCRIPT_DIR.join('glyphs.py')} #{path}"
         # end
 
-        command = "#{DragonflyFonts::SCRIPT_DIR.join('glyphs.py')} #{content.path}"
+        command = "fontforge -lang=py #{DragonflyFonts::SCRIPT_DIR.join('glyphs.py')} #{content.path}"
         details, stderr_str, status = Open3.capture3(command)
 
         return [] unless details.present?

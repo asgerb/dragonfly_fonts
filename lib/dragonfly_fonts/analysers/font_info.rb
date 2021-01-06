@@ -9,7 +9,7 @@ module DragonflyFonts
         return {} unless FONT_FORGE_SUPPORTED_FORMATS.include?(content.ext.downcase)
 
         details = content.shell_eval do |path|
-          "#{DragonflyFonts::SCRIPT_DIR.join('font_info.py')} #{path}"
+          "fontforge -lang=py #{DragonflyFonts::SCRIPT_DIR.join('font_info.py')} #{path}"
         end
 
         return [] unless details.present?
