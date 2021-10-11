@@ -71,6 +71,7 @@ def main():
     'os2_windescent_add': font.os2_windescent_add,
     'path': font.path,
     'sfnt_revision': font.sfntRevision,
+    'sfnt_names': font.sfnt_names,
     'trademark': names.get('Trademark'),
     'upos': font.upos,
     'uwidth': font.uwidth,

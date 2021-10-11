@@ -22,6 +22,7 @@ describe DragonflyFonts::Analysers::FontInfo do
     encoding
     familyname
     fontlog
+    fondname
     fontname
     fullname
     hhea_ascent
@@ -62,6 +63,7 @@ describe DragonflyFonts::Analysers::FontInfo do
     os2_windescent
     os2_windescent_add
     path
+    sfnt_names
     sfnt_revision
     trademark
     upos
